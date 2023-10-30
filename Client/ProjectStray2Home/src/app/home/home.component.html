@@ -1,0 +1,60 @@
+<body>
+  <div class="container">
+    <div>
+      <h2>
+        Segíts, hogy minden háziállat
+        hazajuthasson a családjához
+      </h2>
+      <div style="margin-top:5%">
+        <p>
+          Elveszett a kisállatod? <br />
+          Esetleg láttál/befogadtál egyet és segíteni szeretnél megtalálni a gazdáját?
+        </p>
+      </div>
+      <div>
+        <a mat-flat-button color="primary" class="wide-button" style="margin-top:10%" [routerLink]="['/animals/upload']">
+          Háziállat bejelentése
+        </a>
+      </div>
+    </div>
+    <div class="tile-image-container">
+      <img src="assets/images/home/titleImage.png" class="title-image" alt="köszöntő kép" />
+    </div>
+  </div>
+
+  <div class="lost-animals-background"></div>
+  <div class="lost-animals">
+    <div style="font-size: 1.7em">
+      <h3>
+        Legfrissebben feltöltött állatok
+      </h3>
+    </div>
+    <div>
+      <div *ngIf="animals$ | async as animals; else loading">
+        <mat-grid-list cols="4" style="width: 100%; " rowHeight="45vh">
+          <mat-grid-tile *ngFor="let animal of animals">
+            <div class="tile">
+              <app-small-animal-thumbnail [animal]="animal"></app-small-animal-thumbnail>
+              <br />
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 0.2%;">
+    <a [routerLink]="['/animals']" >
+      <div class="message"> 
+        Átlagosan 3-ból 1 háziállat elkóboról élete során. Segíts, hogy hazataláljanak: akár egy kattintással.
+      </div>  
+    </a>
+  </div>
+</body>
+
+<ng-template #loading>
+  <div>
+    <mat-progress-spinner style="margin: 0 auto" mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>
+

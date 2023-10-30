@@ -1,0 +1,41 @@
+.container {
+  display: grid;
+  //align-items: start;
+  grid-template-columns: 1fr 1.5fr;
+  column-gap: 5vh;
+}
+
+.tile-image-container {
+  float: right;
+}
+
+.title-image {
+  width: 50vh;
+  border-radius: 3%;
+  float: right;
+}
+
+.lost-animals {
+  margin-top: 3.5%;
+  padding-top: 0.5%;
+  height: 55vh;
+}
+
+.lost-animals-background {
+  margin-top: 1%;
+  background-image: linear-gradient(rgb(0 0 0/4%) 0 0);
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  height: 55vh;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.tile {
+  position: absolute;
+  left: 0px;
+  margin-right: 2%;
+}
+
+

@@ -1,0 +1,199 @@
+<div class="upload">
+  <div style="text-align: center;">
+    <h1>Állat feltöltése</h1>
+    <hr />
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="block">
+      <!-- Name -->
+      <mat-label>Az állat neve</mat-label>
+      <mat-form-field>
+        <input matInput formControlName="name" required
+               placeholder="Név">
+        <mat-error *ngFor="let error of getErrors(form.get('name')!,
+            'Név')">
+          {{error}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="container block">
+      <div>
+        <!-- Animal type -->
+        <mat-label>Típus</mat-label>
+        <mat-form-field>
+          <mat-select formControlName="type" placeholder="Kérlek válaszd ki az állatot!">
+            <mat-option *ngFor="let animalType of animalTypes" [value]="animalType">{{animalType | animalTypeConverter}}</mat-option>
+          </mat-select>
+          <mat-error *ngFor="let error of getErrors(form.get('type')!,
+        'Típus')">
+            {{error}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <!-- Breed -->
+        <mat-label>Fajta</mat-label>
+        <mat-form-field>
+
+          <input matInput formControlName="breed" required
+                 placeholder="Fajta">
+          <mat-error *ngFor="let error of getErrors(form.get('breed')!,
+            'Fajta')">
+            {{error}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="container block">
+      <div>
+        <!-- Sex -->
+        <mat-label>Neme</mat-label>
+        <mat-form-field>
+
+          <mat-select formControlName="sex" placeholder="Kérlek válassz nemet!">
+            <mat-option *ngFor="let sx of sex" [value]="sx">{{sx | animalSexConverter}}</mat-option>
+          </mat-select>
+          <mat-error *ngFor="let error of getErrors(form.get('sex')!,
+        'Nem')">
+            {{error}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <!-- DateOfBirth -->
+        <mat-label>Születési dátum</mat-label>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+          <mat-hint>év/hó/nap</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="block">
+      <!-- Status city -->
+      <mat-label>Az állat helye</mat-label>
+      <mat-form-field class="example-full-width" *ngIf="cities$ | async; else loading">
+
+        <input type="text" matInput formControlName="cityInput" [matAutocomplete]="auto" />
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"
+                          (optionSelected)='onCurrentCitySelectChange($event.option.value)'>
+          <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+            {{city.name}}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngFor="let error of getErrors(form.get('city')!,
+            'Város')">
+          {{error}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="block">
+      <!-- Characteristic  -->
+      <mat-label>Külső leírás</mat-label>
+      <mat-form-field>
+        <input matInput formControlName="characteristic" required
+               placeholder="Külső leírás">
+        <mat-error *ngFor="let error of getErrors(form.get('characteristic')!,
+            'Külső leírás')">
+          {{error}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="block">
+      <!-- Behavior -->
+      <mat-label>Viselkedés</mat-label>
+      <mat-form-field>
+        <input matInput formControlName="behavior" required
+               placeholder="Viselkedés">
+        <mat-error *ngFor="let error of getErrors(form.get('behavior')!,
+            'Viselkedés')">
+          {{error}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="container block" style=" grid-template-columns: 1fr 2fr">
+      <!-- IsChipped -->
+      <div>
+        <mat-label>Chip állapota</mat-label><br />
+        <mat-checkbox formControlName="isChipped">Chippelve van</mat-checkbox>
+      </div>
+
+      <div>
+        <!-- Status -->
+        <mat-label>Státusz</mat-label>
+        <mat-form-field>
+          <mat-select formControlName="status" placeholder="Kérlek válaszd ki az állat státuszát!">
+            <mat-option *ngFor="let animal of animalStatus" [value]="animal">{{animal | animalStatusConverter}}</mat-option>
+          </mat-select>
+          <mat-error *ngFor="let error of getErrors(form.get('status')!,
+        'Státusz')">
+            {{error}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="block">
+      <!-- Status description -->
+      <mat-label>Státusz részletezése</mat-label>
+      <mat-form-field>
+        <input matInput formControlName="statusDescription"
+               placeholder="Státusz részletezése">
+        <mat-error *ngFor="let error of getErrors(form.get('statusDescription')!,
+            'Státusz részletezése')">
+          {{error}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="block">
+      <!-- Image -->
+      <mat-label>Fotók feltöltése</mat-label>
+      <input formcontrolname="imageFiles" required type="file" accept="image/png, image/gif, image/jpeg, image/jpg"
+             multiple="" class="file-input" (change)="onFileChange($event)" #fileUpload>
+      <div class="file-upload">
+        <button mat-mini-fab color="primary" class="upload-btn"
+                (click)="fileUpload.click()"
+                type="button">
+          <mat-icon>attach_file</mat-icon>
+        </button>
+        {{fileName || "Tölts fel minimum 1 képet."}}
+      </div>
+    </div>
+    <hr />
+    <div style="height:2vh">
+      <mat-error *ngIf="uploadResult && !uploadResult.success" class="error-field">
+        <strong>HIBA</strong>: {{uploadResult.message}}
+      </mat-error>
+    </div>
+
+    <div class="block" style="margin-top:5%;">
+      <div *ngIf="!isBusy">
+        <button mat-flat-button color="primary"
+                [disabled]="!form.valid"
+                type="submit"
+                class="wide-button">
+          Feltöltés
+        </button>
+      </div>
+      <div *ngIf="isBusy; then loading">
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<ng-template #loading>
+  <div>
+    <mat-progress-spinner style="margin: 0 auto; position: relative;" mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>

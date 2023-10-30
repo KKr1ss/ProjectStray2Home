@@ -1,0 +1,72 @@
+<div class="login">
+
+  <div style="text-align: center;">
+    <h1>
+      Bejelentkezés
+    </h1>
+  </div>
+  <div class="login-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="block">
+        <!-- UserName -->
+        <mat-label>Felhasználónév</mat-label>
+        <mat-form-field>
+          <input matInput formControlName="userName" required
+                 placeholder="Felhasználónév">
+          <mat-error *ngFor="let error of getErrors(form.get('userName')!,
+            'Felhasználónév')">
+            {{error}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="block">
+        <!-- Password -->
+        <mat-label>Jelszó</mat-label>
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" required
+                 placeholder="Jelszó">
+          <mat-error *ngFor="let error of getErrors(form.get('password')!,
+        'Jelszó')">
+            {{error}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div style="height: 2vh">
+        <mat-error *ngIf="loginResult && !loginResult.success" class="error-field">
+          <strong>HIBA</strong>: {{loginResult.message}}
+        </mat-error>
+      </div>
+
+      <div class="block">
+        <div *ngIf="!isBusy">
+          <div>
+            <button mat-flat-button color="primary"
+                    class="wide-button"
+                    [disabled]="!form.valid"
+                    type="submit">
+              Bejelentkezés
+            </button>
+          </div>
+          <div class="separate" style="color:gray">
+            vagy
+          </div>
+          <div class="separate">
+            <span>Még nem felhasználó? </span>
+            <span>
+              <a [routerLink]="['/user/register']">
+                <u>REGISZTRÁCIÓ</u>
+              </a>
+            </span>
+          </div>
+        </div>
+        <div *ngIf="isBusy">
+          <mat-progress-spinner style="margin: 0 auto" mode="indeterminate"></mat-progress-spinner>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

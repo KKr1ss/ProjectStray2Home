@@ -1,0 +1,134 @@
+<div *ngIf="animal$ | async as animal; else loading">
+  <h1>{{animal.name}} - {{animal.status | animalStatusConverter}}</h1>
+  <hr />
+  <div class="horizontal-container">
+    <div>
+      <div *ngIf="animal.animalImagesId.length!=0">
+        <div class="animal-image-container">
+          <img *ngIf="!isBusy; else loading" [src]="selectedImage" alt="Selected Image" class="animal-image" />
+        </div>
+        <div style="margin: auto; width: 40%">
+          <mat-grid-list cols="{{animal.animalImagesId.length}}" columnSpan="0" rowHeight="150px">
+            <mat-grid-tile *ngFor="let animalImage of animalImages" class="animal-image-preview-container">
+              <div *ngIf="animalImage.image$ | async as image; else loading">
+                <img [src]="image" class="animal-image-preview" alt="előnézet" (change)="setSelectedImage($event.target)" (click)="setSelectedImage($event.target)" [id]="'animalImage'+animalImage.id" />
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+      </div>
+      <div *ngIf="animal.animalImagesId.length==0">
+        <em>Nincs kép feltöltve</em>
+      </div>
+    </div>
+    <div class="user-container">
+      <h2>
+        Kapcsolat
+      </h2>
+      <mat-list>
+        <mat-list-item>Név: {{animal.userPreview.lastName}} {{animal.userPreview.firstName}}</mat-list-item>
+        <mat-list-item>Telefonszám: {{animal.userPreview.phoneNumber}}</mat-list-item>
+        <mat-list-item>Email: {{animal.userPreview.email}}</mat-list-item>
+      </mat-list>
+
+      <a class="horizontal-user-container" [routerLink]="['/user', animal.userPreview.userName]">
+        <div class="container">
+          <div *ngIf="animal.userPreview.image$ | async as image; else loading">
+            <img [src]="image" class="user-image" alt="Felhasználókép" />
+          </div>
+        </div>
+        <div>
+          <h4>{{animal.userPreview.userName}}</h4>
+        </div>
+      </a>
+    </div>
+  </div>
+  <hr />
+  <div class="horizontal-container" style="grid-template-columns: 1.7fr 1fr; text-align: start">
+    <div>
+      <h2>
+        További adatok
+      </h2>
+
+      <div class="horizontal-container" style="grid-template-columns: 1fr 1fr;">
+        <div>
+          <h4>Fajta</h4>
+          {{animal.type | animalTypeConverter}}, {{animal.breed}}
+          <h4>Nem</h4>
+          {{animal.sex | animalSexConverter}}
+          <h4>Születési dátum</h4>
+          {{animal.dateOfBirth | date: 'yyyy.MM.dd'}}
+          <h4>Külső leírás</h4>
+          {{animal.characteristic}}
+          <h4>Viselkedés</h4>
+          {{animal.behavior}}
+        </div>
+        <div>
+          <h4>Város</h4>
+          {{animal.city}}
+          <div *ngIf="animal.statusDescription">
+            <h4>Leírás</h4>
+            {{animal.statusDescription}}
+          </div>
+          <h4>Chippeltetve-van?</h4>
+          {{animal.isChipped ? "Igen" : "Nem"}}
+
+        </div>
+      </div>
+    </div>
+
+    <div class="user-container">
+
+      <h2>Kommentek</h2>
+      <hr />
+      <mat-list style="height: 20vh; overflow: auto;">
+        <mat-list-item *ngFor="let comment of animal.comments" style="height:40%;">
+          <div>
+            {{comment.comment}}<br />
+                               <p class="comment-downline"><a [routerLink]="['/user/',comment.user.userName]"><u>{{comment.user.userName}}</u></a>, {{comment.createDate | date: 'yyyy.mm.dd hh:mm'}}</p>
+          </div>
+        <hr />
+        </mat-list-item>
+      </mat-list>
+      <hr />
+      <form *ngIf="isLoggedIn" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="horizontal-container" style="grid-template-columns: 3fr 1fr; text-align: center">
+          <mat-form-field>
+            <mat-label>Komment</mat-label>
+            <input matInput formControlName="comment" required
+                   placeholder="Komment">
+            <mat-error *ngFor="let error of getErrors(form.get('comment')!,
+        'Komment')">
+              {{error}}
+            </mat-error>
+          </mat-form-field>
+          <button mat-flat-button color="primary"
+                  [disabled]="!form.valid"
+                  type="submit"
+                  style="height:70%"
+                  class="material-icons">
+            arrow_upward
+          </button>
+        </div>
+        <div>
+          <mat-error *ngIf="commentResult && !commentResult.success" class="error-field">
+            <strong>HIBA</strong>: {{commentResult.message}}
+          </mat-error>
+        </div>
+        <div>
+
+        </div>
+      </form>
+      <div *ngIf="!isLoggedIn">
+        <em>Kommenteléshez kérjük <a [routerLink]="['/user/profile']"><u>jelentkezz</u></a> be!</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div>
+    <mat-progress-spinner style="margin: 0 auto" mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>
+

@@ -1,0 +1,17 @@
+<div *ngIf="animal.image$ | async as image; else loading" class="tile" [routerLink]="['/animals', animal.id]">
+  <div class="animal-container">
+    <div>
+      <img [src]="image" class="animal-image" id="animalImage" alt="állat kép"/>
+    </div>
+  </div>
+  <div class="animal-tile">
+    <div style="font-size: 22px; font-weight: 600; color: #835AA1">{{animal.name}}, {{animal.city}}<br /></div>
+    {{animal.status | animalStatusConverter}}, {{days}}
+  </div>
+</div>
+
+<ng-template #loading>
+  <div>
+    <mat-progress-spinner style="margin: 0 auto" mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>

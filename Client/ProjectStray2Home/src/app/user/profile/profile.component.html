@@ -1,0 +1,54 @@
+<div *ngIf="profile$ | async as profile; else loading">
+  <div class="title-background"></div>
+  <div class="horizontal-container" style="background-image: linear-gradient(rgb(207 124 182/20%) 0 0); width:50%; border-radius: 125px">
+    <div class="image-container">
+      <div *ngIf="profile.image$ | async as image; else loading">
+        <img [src]="image" class="profile-image clip-circle" alt="profil kép"/>
+      </div>
+    </div>
+    <div>
+      <h1>{{profile.userName}}</h1>
+    </div>
+  </div>
+  <hr />
+  <div class="horizontal-container" style="align-items: start; grid-template-columns: 1fr 3fr;">
+    <div class="overview">
+      <h3 style="text-align: center; margin: 0px; ">Rövid áttekintés</h3>
+      <div style="margin-top: 5%">
+        <mat-list>
+          <mat-list-item>Név: {{profile.lastName}} {{profile.firstName}}</mat-list-item>
+          <mat-list-item>{{profile.sex}}</mat-list-item>
+          <mat-list-item>Lakhely: {{profile.currentCity}}</mat-list-item>
+          <hr />
+          <mat-list-item>
+            Leírás: <br />
+            {{profile.description}}
+          </mat-list-item>
+        </mat-list>  
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-bottom:0px;">
+        <span>Bejelentett állatok: </span>
+        <span>{{profile.animals.length}} db</span>
+      </h3>
+      <div>
+        <mat-grid-list cols="4" style="width: 100%;" rowHeight="30vh">
+          <mat-grid-tile *ngFor="let animal of profile.animals">
+            <div class="tile">
+              <app-small-animal-thumbnail [animal]="animal"></app-small-animal-thumbnail>
+              <br />
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div>
+    <mat-progress-spinner style="margin: 0 auto" mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>
+

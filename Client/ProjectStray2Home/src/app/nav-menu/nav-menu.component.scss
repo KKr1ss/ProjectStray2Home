@@ -1,0 +1,10 @@
+@import '../../../src/styles.scss';
+
+.separator {
+    flex: 1 1 auto;
+  }
+
+::ng-deep .matCustomize {
+  background-color: white;
+  border: 5px solid #835AA1;
+}

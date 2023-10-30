@@ -1,0 +1,55 @@
+.register {
+  margin: 3% 23% 2% 23%;
+  padding: 5% 3% 5% 3%;
+  //background-image: linear-gradient(rgb(207 124 182/20%) 0 0);
+  background-color: white;
+  border: solid #835AA1 0.6rem;
+  border-radius: 50px;
+}
+
+.register-form {
+  padding: 0% 5% 5% 5%;
+}
+
+.container {
+  display: grid;
+  //align-items: start;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1vh;
+}
+
+mat-form-field {
+  display: block;
+  font-size: 2rem;
+  width: 100%;
+}
+
+.block {
+  height: 10vh;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.separate {
+  text-align: center;
+  margin-top: 5%
+}
+
+.file-input {
+  display: none;
+}
+
+.img-container {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 20px;
+  object-position: center center;
+}
+
+img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 20px;
+  border: solid #835AA1 0.3rem;
+}

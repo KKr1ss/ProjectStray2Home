@@ -1,0 +1,89 @@
+<div *ngIf="account$ | async as account; else loading">
+  <div>
+    <h2>
+      Felhasználói beállítások
+    </h2>
+    <hr />
+  </div>
+
+  <div class="container">
+    <div>
+      <div>
+        <h1 style="margin-bottom: 0px">
+          {{account.userName}}
+        </h1>
+      </div>
+      <div class="profile-image-container">
+        <div *ngIf="account.image$ | async as image; else loading">
+          <img [src]="image" class="profile-image" alt="profil kép"/>
+        </div>
+        <a mat-flat-button color="primary" [routerLink]="">
+          Profilkép módosítása
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <div class="description field-container">
+        <div style="vertical-align: top">
+          <h3>Leírás</h3>
+          {{account.description}}
+        </div>
+        <a mat-flat-button color="primary" [routerLink]="">
+          Módosítás
+        </a>
+      </div>
+      <div class="field-container">
+        <div>
+          <h3>Név</h3>
+          {{account.lastName}} {{account.firstName}}
+        </div>
+        <a mat-flat-button color="primary" [routerLink]="">
+          Módosítás
+        </a>
+      </div>
+      <div class="field-container">
+        <div>
+          <h3>Email cím</h3>
+          {{account.email}}
+        </div>
+        <a mat-flat-button color="primary" [routerLink]="">
+          Módosítás
+        </a>
+      </div>
+      <div class="field-container">
+        <div>
+          <h3>Nem</h3>
+          {{account.sex | userSexConverter}}
+        </div>
+        <a mat-flat-button color="primary" [routerLink]="">
+          Módosítás
+        </a>
+      </div>
+      <div class="field-container">
+        <div>
+          <h3>Telefonszám</h3>
+          {{account.phoneNumber}}
+        </div>
+        <a mat-flat-button color="primary" [routerLink]="">
+          Módosítás
+        </a>
+      </div>
+      <div class="field-container">
+        <div>
+          <h3>Város</h3>
+          {{account.currentCity}}
+        </div>
+        <a mat-flat-button color="primary" [routerLink]="">
+          Módosítás
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div>
+    <mat-progress-spinner style="margin: 0 auto" mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>

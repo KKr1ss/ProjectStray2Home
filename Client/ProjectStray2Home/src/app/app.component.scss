@@ -1,0 +1,26 @@
+app-nav-menu {
+  height: 5vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  width: 100%
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+  height: 95vh;
+  padding-top: 5vh
+}
+
+.inner-container {
+  flex: 1; // if you want center container large space else will take size of the content or apply flex-basis
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-size: 1.5em;
+  line-height: 1.2;
+  background-color: #F7F4ED;
+}

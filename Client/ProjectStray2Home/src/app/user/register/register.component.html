@@ -1,0 +1,251 @@
+<div class="register">
+  <div style="text-align: center;">
+    <h1>
+      Regisztráció
+    </h1>
+    <hr />
+  </div>
+  <div class="register-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!--Step 1: personal information-->
+      <div *ngIf="stepArray[0]">
+        <h2>Személyes adatok</h2>
+        <div formGroupName="personalForm">
+          <div class="block">
+            <!-- UserName -->
+            <mat-label>Felhasználónév</mat-label>
+            <mat-form-field>
+              <input matInput formControlName="userName" required
+                     placeholder="Felhasználónév">
+              <mat-error *ngFor="let error of getErrors(getPersonalForm().get('userName')!,
+            'Felhasználónév')">
+                {{error}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="block">
+            <!-- Email -->
+            <mat-label>Email cím</mat-label>
+            <mat-form-field>
+              <input matInput formControlName="email" required
+                     placeholder="Email">
+              <mat-error *ngFor="let error of getErrors(getPersonalForm().get('email')!,
+            'Email')">
+                {{error}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="block">
+            <!-- Password -->
+            <mat-label>Jelszó</mat-label>
+            <mat-form-field>
+              <input matInput type="password" formControlName="password" required
+                     placeholder="Jelszó">
+              <mat-error *ngFor="let error of getErrors(getPersonalForm().get('password')!,
+        'Jelszó')">
+                {{error}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="container block">
+            <div>
+              <!-- Lastname -->
+              <mat-label>Vezetéknév</mat-label>
+              <mat-form-field>
+                <input matInput formControlName="lastname" required
+                       placeholder="Vezetéknév">
+                <mat-error *ngFor="let error of getErrors(getPersonalForm().get('lastname')!,
+        'Vezetéknév')">
+                  {{error}}
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <!-- Firstname -->
+              <mat-label>Keresztnév</mat-label>
+              <mat-form-field>
+                <input matInput formControlName="firstname" required
+                       placeholder="Keresztnév">
+                <mat-error *ngFor="let error of getErrors(getPersonalForm().get('firstname')!,
+        'Keresztnév')">
+                  {{error}}
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="container block">
+            <div>
+              <!-- Sex -->
+              <mat-label>Neme</mat-label>
+              <mat-form-field>
+                <mat-select formControlName="sex" placeholder="Kérlek válassz nemet!">
+                  <mat-option value="Male">Férfi</mat-option>
+                  <mat-option value="Female">Nő</mat-option>
+                </mat-select>
+                <mat-error *ngFor="let error of getErrors(getPersonalForm().get('sex')!,
+        'Nem')">
+                  {{error}}
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <!-- DateOfBirth -->
+              <mat-label>Születési dátum:</mat-label>
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" required>
+                <!--<mat-hint>MM/DD/YYYY</mat-hint>-->
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="block">
+            <!-- PhoneNumber -->
+            <mat-label>Telefonszám</mat-label>
+            <mat-form-field>
+              <input matInput formControlName="phoneNumber" required
+                     placeholder="Telefonszám">
+              <mat-error *ngFor="let error of getErrors(getPersonalForm().get('phoneNumber')!,
+        'Telefonszám')">
+                {{error}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="block">
+            <!-- CurrentCity -->
+            <mat-label>Város</mat-label>
+            <mat-form-field class="example-full-width" *ngIf="cities$ | async; else loading">
+              <input type="text" matInput formControlName="currentCityInput" [matAutocomplete]="currentAuto" />
+              <mat-autocomplete #currentAuto="matAutocomplete" [displayWith]="displayFn"
+                                (optionSelected)='onCurrentCitySelectChange($event.option.value)'>
+                <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+                  {{city.name}}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error *ngFor="let error of getErrors(getPersonalForm().get('currentCity')!,
+            'Város')">
+                {{error}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="block">
+            <!-- Description -->
+            <mat-label>Leírás</mat-label>
+            <mat-form-field>
+              <input matInput formControlName="description"
+                     placeholder="Rövid leírás a profilodhoz">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <!--Observed cities-->
+      <div *ngIf="stepArray[1]">
+        <h2>
+          Városok
+        </h2>
+        <div formGroupName="citiesForm">
+          <mat-form-field class="example-full-width">
+            <input type="text" matInput formControlName="cityInput" [matAutocomplete]="auto" />
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"
+                              (optionSelected)="onObservedCitySelectChange($event.option.value)">
+              <mat-option *ngFor="let city of filteredObservedCity | async" [value]="city">
+                {{city.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <label>Figyelendő városok:</label>
+          <mat-list dense>
+            <mat-list-item *ngIf="selectedCities?.length === 0">(Nincs kiválasztva)</mat-list-item>
+            <mat-list-item *ngFor="let city of selectedCities">
+              {{ city.name }}
+              <mat-icon (click)="removeCity(city)">close</mat-icon>
+            </mat-list-item>
+          </mat-list>
+
+        </div>
+      </div>
+
+      <!--Image and end registration-->
+      <div *ngIf="stepArray[2]">
+        <h2>Profilkép feltöltése (opcionális)</h2>
+        <div>
+          <div>
+            <!-- Image -->
+            <div class="img-container">
+              <img *ngIf="userImagePreview" [src]="userImagePreview" alt="user image preview" />
+            </div>
+            <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"
+                   class="file-input" (change)="onFileChange($event)" #fileUpload>
+            <div class="file-upload">
+              <span>
+                <button mat-mini-fab color="primary" class="upload-btn"
+                        (click)="fileUpload.click()"
+                        type="button">
+                  <mat-icon>attach_file</mat-icon>
+                </button>
+              </span>
+              <span style="text-overflow: ellipsis; overflow: hidden; width: 100%">
+                {{fileName || "Kérlek válassz 1 képet (opcionális)."}}
+              </span>
+            </div>
+          </div>
+
+          <div style="height: 2vh">
+            <mat-error *ngIf="registerResult && !registerResult.success" class="error-field">
+              <strong>HIBA</strong>: {{registerResult.message}}
+            </mat-error>
+          </div>
+
+          <div class="block" style="margin-top:5%; margin-bottom: 20%">
+            <div *ngIf="!isBusy">
+              <div>
+                <button mat-flat-button color="primary"
+                        class="wide-button"
+                        [disabled]="!form.valid"
+                        type="submit">
+                  Regisztráció
+                </button>
+              </div>
+              <div class="separate" style="color:gray">
+                vagy
+              </div>
+              <div class="separate">
+                <span>Már van fiókod? </span>
+                <span>
+                  <a [routerLink]="['/user/login']">
+                    <u>BELÉPÉS</u>
+                  </a>
+                </span>
+              </div>
+            </div>
+            <div *ngIf="isBusy; then loading">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="width:100%">
+        <hr />
+        <button mat-flat-button type='button' color="primary" style="float: left; font-size: 2.5rem" [disabled]="stepArray[0]" (click)="stepBackward()">Vissza</button>
+        <button mat-flat-button type='button' color="primary" style="float: right; font-size: 2.5rem" [disabled]="stepArray[2] || !getPersonalForm().valid" (click)="stepForward()">Tovább</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div>
+    <mat-progress-spinner style="margin: 0 auto; position: relative;" mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>

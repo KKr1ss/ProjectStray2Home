@@ -1,0 +1,36 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap: 5vh;
+}
+
+.field-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 5vh;
+  align-items:center;
+  padding: 2%;
+  position: relative;
+}
+
+.description {
+  border: solid #835AA1 0.3rem;
+  border-radius: 10px;
+}
+
+.profile-image-container {
+  width: 100%;
+  height: 100%;
+  object-position: center center;
+  aspect-ratio: 1 / 1;
+}
+
+.profile-image {
+  object-fit: cover;
+  object-position: center center;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: solid #835AA1 0.3rem;
+}

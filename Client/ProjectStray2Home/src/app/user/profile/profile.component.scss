@@ -1,0 +1,48 @@
+.image-container {
+  width: 10%;
+  aspect-ratio: 1 / 1;
+}
+
+.horizontal-container {
+  display: grid;
+  //align-items: start;
+  grid-template-columns: 1fr 4fr;
+  column-gap: 5vh;
+  align-items:center
+}
+
+.overview {
+  padding: 3% 3% 5% 3%;
+  //background-image: linear-gradient(rgb(207 124 182/20%) 0 0);
+  background-color: white;
+  border: solid #835AA1 0.6rem;
+  border-radius: 20px;
+}
+
+.profile-image {
+  object-fit: cover;
+  object-position: center center;
+  width: 250px;
+  height: 250px;
+}
+
+.title-background {
+  background-image: linear-gradient(rgb(0 0 0/4%) 0 0);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 30%;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.tile {
+  position: absolute;
+  left: 0px;
+  margin-right: 2%;
+}
+
+.clip-circle {
+  border-radius: 50%;
+}
