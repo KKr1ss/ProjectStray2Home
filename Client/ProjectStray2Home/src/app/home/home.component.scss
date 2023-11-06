@@ -1,8 +1,16 @@
 .container {
   display: grid;
-  //align-items: start;
-  grid-template-columns: 1fr 1.5fr;
-  column-gap: 5vh;
+  grid-template-columns: 1fr;
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr 1.5fr;
+    column-gap: 5vh;
+  }
 }
 
 .tile-image-container {
@@ -10,32 +18,18 @@
 }
 
 .title-image {
-  width: 50vh;
+  max-width: 100%;
   border-radius: 3%;
   float: right;
 }
 
 .lost-animals {
-  margin-top: 3.5%;
-  padding-top: 0.5%;
-  height: 55vh;
-}
-
-.lost-animals-background {
-  margin-top: 1%;
-  background-image: linear-gradient(rgb(0 0 0/4%) 0 0);
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  height: 55vh;
-  padding-left: 15%;
-  padding-right: 15%;
+  border-radius: 10px;
+  background-image: linear-gradient(rgb(0 0 0/10%) 0 0);
 }
 
 .tile {
-  position: absolute;
   left: 0px;
-  margin-right: 2%;
 }
 
 

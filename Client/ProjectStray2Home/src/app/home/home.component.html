@@ -11,24 +11,21 @@
           Esetleg láttál/befogadtál egyet és segíteni szeretnél megtalálni a gazdáját?
         </p>
       </div>
-      <div>
-        <a mat-flat-button color="primary" class="wide-button" style="margin-top:10%" [routerLink]="['/animals/upload']">
+      <div style="display: flex; margin-top: 1em; margin-bottom: 1em;">
+        <a mat-flat-button color="primary" class="wide-button" [routerLink]="['/animals/upload']">
           Háziállat bejelentése
         </a>
       </div>
-    </div>
+    </div>W
     <div class="tile-image-container">
       <img src="assets/images/home/titleImage.png" class="title-image" alt="köszöntő kép" />
     </div>
   </div>
 
-  <div class="lost-animals-background"></div>
   <div class="lost-animals">
-    <div style="font-size: 1.7em">
-      <h3>
-        Legfrissebben feltöltött állatok
-      </h3>
-    </div>
+    <h3>
+      Legfrissebben feltöltött állatok
+    </h3>
     <div>
       <div *ngIf="animals$ | async as animals; else loading">
         <mat-grid-list cols="4" style="width: 100%; " rowHeight="45vh">
@@ -43,11 +40,11 @@
     </div>
   </div>
 
-  <div style="margin: 0.2%;">
-    <a [routerLink]="['/animals']" >
-      <div class="message"> 
+  <div style="margin: 1em">
+    <a [routerLink]="['/animals']">
+      <div class="message">
         Átlagosan 3-ból 1 háziállat elkóboról élete során. Segíts, hogy hazataláljanak: akár egy kattintással.
-      </div>  
+      </div>
     </a>
   </div>
 </body>
