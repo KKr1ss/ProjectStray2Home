@@ -28,7 +28,7 @@
     </h3>
     <div>
       <div *ngIf="animals$ | async as animals; else loading">
-        <mat-grid-list cols="4" style="width: 100%; " rowHeight="45vh">
+        <mat-grid-list style="margin:0;" [cols]="(isDesktop$ | async) ? 4 : 2" rowHeight="1:1.6">
           <mat-grid-tile *ngFor="let animal of animals">
             <div class="tile">
               <app-small-animal-thumbnail [animal]="animal"></app-small-animal-thumbnail>

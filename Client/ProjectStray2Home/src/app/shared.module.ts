@@ -11,6 +11,7 @@ import { AngularMaterialModule } from "./angular-material.module";
 import { RouterLink } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BlobToSafeURLConverterPipe } from "./shared/pipes/blob-to-safeurl-converter.pipe";
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { BlobToSafeURLConverterPipe } from "./shared/pipes/blob-to-safeurl-conve
     AngularMaterialModule,
     RouterLink,
     AngularMaterialModule,
+    LayoutModule
   ],
   declarations: [
     DaysSinceStatusChangePipe,
@@ -37,6 +39,7 @@ import { BlobToSafeURLConverterPipe } from "./shared/pipes/blob-to-safeurl-conve
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    LayoutModule,
 
     //Pipes
     DaysSinceStatusChangePipe,
@@ -49,7 +52,7 @@ import { BlobToSafeURLConverterPipe } from "./shared/pipes/blob-to-safeurl-conve
 
     //Component
     SmallAnimalThumbnailComponent,
-    
+
   ]
 })
 export class SharedModule { }
