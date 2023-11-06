@@ -84,7 +84,7 @@ footer {
   border-radius: 70px;
   background-color: #D8E3AA;
   color: black;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 600;
   text-align: center;
 }
@@ -145,4 +145,17 @@ h6 {
   color: #50487E;
   margin: 0%;
   padding: 0%;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .nav-menu-align {
+    margin-left: 10%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .nav-menu-align {
+    margin-left: 20%;
+  }
 }

@@ -1,38 +1,50 @@
 <header>
   <mat-toolbar color="primary">
-    <button mat-icon-button [routerLink]="['/']" style="margin-left: 20%">
-      <mat-icon>
-        home
-      </mat-icon>
-    </button>
-    <a mat-flat-button color="primary" [routerLink]="['animals']">
-      Állatok
-    </a>
-    <a mat-flat-button color="primary" [routerLink]="['/animals/upload']">
-      Találtam egy állatot
-    </a>
+    <div class="nav-menu-align">
+      <button mat-icon-button [routerLink]="['/']">
+        <mat-icon>
+          home
+        </mat-icon>
+      </button>
+      <a mat-flat-button color="primary" [routerLink]="['animals']">
+        Állatok
+      </a>
+      <a mat-flat-button color="primary" [routerLink]="['/animals/upload']">
+        Találtam egy állatot
+      </a>
+    </div>
 
-    <span class="separator" style="margin-right: 20%"></span>
-    <a *ngIf="!isLoggedIn" mat-flat-button color="primary" [routerLink]="['/user/login']">
-      Bejelentkezés
-    </a>
-    <a *ngIf="!isLoggedIn" mat-flat-button color="primary" [routerLink]="['/user/register']">
-      Regisztráció
-    </a>
+    <span class="nav-item-spacer"></span>
 
-    <a *ngIf="isLoggedIn" mat-button [matMenuTriggerFor]="loggedInMenu">{{username}}</a>
-    <mat-menu #loggedInMenu="matMenu" class="matCustomize" yPosition="below">
-      <a mat-menu-item [routerLink]="['/user',username]">
-        Profilom
-      </a>
-      <a style="margin-bottom: 10%"mat-menu-item [routerLink]="['/user/myaccount']">
-        Beállítások
-      </a>
-      <hr />
-      <a style="margin-top: 10%" mat-menu-item (click)="onLogout()">
-        Kijelentkezés
-      </a>
-    </mat-menu>
-    <span class="separator"></span>
+    <div>
+      <button *ngIf="!isLoggedIn" mat-icon-button [matMenuTriggerFor]="loggedOutMenu">
+        <mat-icon>
+          account_box
+        </mat-icon>
+      </button>
+      <mat-menu #loggedOutMenu="matMenu" class="matCustomize" yPosition="below">
+        <a mat-menu-item [routerLink]="['/user/login']">
+          Bejelentkezés
+        </a>
+        <hr />
+        <a style="margin-bottom: 10%" mat-menu-item [routerLink]="['/user/register']">
+          Regisztráció
+        </a>
+      </mat-menu>
+
+      <a *ngIf="isLoggedIn" mat-button [matMenuTriggerFor]="loggedInMenu">{{username}}</a>
+      <mat-menu #loggedInMenu="matMenu" class="matCustomize" yPosition="below">
+        <a mat-menu-item [routerLink]="['/user',username]">
+          Profilom
+        </a>
+        <a style="margin-bottom: 10%" mat-menu-item [routerLink]="['/user/myaccount']">
+          Beállítások
+        </a>
+        <hr />
+        <a style="margin-top: 10%" mat-menu-item (click)="onLogout()">
+          Kijelentkezés
+        </a>
+      </mat-menu>
+    </div>
   </mat-toolbar>
 </header>
