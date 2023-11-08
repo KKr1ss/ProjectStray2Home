@@ -7,7 +7,7 @@
   </div>
 
   <div class="container">
-    <div>
+    <div class="image-field-container">
       <div>
         <h1 style="margin-bottom: 0px">
           {{account.userName}}
@@ -17,9 +17,11 @@
         <div *ngIf="account.image$ | async as image; else loading">
           <img [src]="image" class="profile-image" alt="profil kép"/>
         </div>
-        <a mat-flat-button color="primary" [routerLink]="">
-          Profilkép módosítása
-        </a>
+        <div style="display:flex;">
+          <button mat-flat-button class="wide-button" style="font-size: 1.2rem" color="primary" [routerLink]="">
+            Profilkép módosítása
+          </button>
+        </div>
       </div>
     </div>
 

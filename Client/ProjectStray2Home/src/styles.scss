@@ -55,11 +55,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.nav-menu-align {
-  display: flex;
-  justify-content: center;
-}
-
 footer {
   background-color: #E6E3DD;
   text-align: center;
@@ -162,13 +157,7 @@ h6 {
 
 
 @media only screen and (min-width: 768px) {
-  .nav-menu-align {
-    margin-left: 10%;
-  }
 }
 
 @media only screen and (min-width: 1200px) {
-  .nav-menu-align {
-    margin-left: 20%;
-  }
 }

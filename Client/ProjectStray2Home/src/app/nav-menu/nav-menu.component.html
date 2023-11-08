@@ -1,18 +1,16 @@
 <header>
   <mat-toolbar color="primary">
-    <div class="nav-menu-align">
-      <button mat-icon-button [routerLink]="['/']">
-        <mat-icon>
-          home
-        </mat-icon>
-      </button>
-      <a mat-flat-button color="primary" [routerLink]="['animals']">
-        Állatok
-      </a>
-      <a mat-flat-button color="primary" [routerLink]="['/animals/upload']">
-        Találtam egy állatot
-      </a>
-    </div>
+    <button mat-icon-button [routerLink]="['/']">
+      <mat-icon>
+        home
+      </mat-icon>
+    </button>
+    <button mat-flat-button color="primary" [routerLink]="['animals']">
+      Állatok
+    </button>
+    <button mat-flat-button color="primary" [routerLink]="['/animals/upload']">
+      Találtam egy állatot
+    </button>
 
     <span class="nav-item-spacer"></span>
 
@@ -32,18 +30,18 @@
         </a>
       </mat-menu>
 
-      <a *ngIf="isLoggedIn" mat-button [matMenuTriggerFor]="loggedInMenu">{{username}}</a>
+      <button *ngIf="isLoggedIn" mat-button [matMenuTriggerFor]="loggedInMenu">{{username}}</button>
       <mat-menu #loggedInMenu="matMenu" class="matCustomize" yPosition="below">
-        <a mat-menu-item [routerLink]="['/user',username]">
+        <button mat-menu-item [routerLink]="['/user',username]">
           Profilom
-        </a>
-        <a style="margin-bottom: 10%" mat-menu-item [routerLink]="['/user/myaccount']">
+        </button>
+        <button style="margin-bottom: 10%" mat-menu-item [routerLink]="['/user/myaccount']">
           Beállítások
-        </a>
+        </button>
         <hr />
-        <a style="margin-top: 10%" mat-menu-item (click)="onLogout()">
+        <button style="margin-top: 10%" mat-menu-item (click)="onLogout()">
           Kijelentkezés
-        </a>
+        </button>
       </mat-menu>
     </div>
   </mat-toolbar>
