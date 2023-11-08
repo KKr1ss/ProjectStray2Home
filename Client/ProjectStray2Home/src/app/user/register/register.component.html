@@ -151,9 +151,9 @@
 
       <!--Observed cities-->
       <div *ngIf="stepArray[1]">
-        <h2>
+        <h3>
           Városok
-        </h2>
+        </h3>
         <div formGroupName="citiesForm">
           <mat-form-field class="example-full-width">
             <input type="text" matInput formControlName="cityInput" [matAutocomplete]="auto" />
@@ -179,7 +179,7 @@
 
       <!--Image and end registration-->
       <div *ngIf="stepArray[2]">
-        <h2>Profilkép feltöltése (opcionális)</h2>
+        <h3>Profilkép feltöltése (opcionális)</h3>
         <div>
           <div>
             <!-- Image -->
@@ -196,21 +196,21 @@
                   <mat-icon>attach_file</mat-icon>
                 </button>
               </span>
-              <span style="text-overflow: ellipsis; overflow: hidden; width: 100%">
+              <span style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 100%; display: block; ">
                 {{fileName || "Kérlek válassz 1 képet (opcionális)."}}
               </span>
             </div>
           </div>
 
-          <div style="height: 2vh">
+          <div style="height: 2.4rem">
             <mat-error *ngIf="registerResult && !registerResult.success" class="error-field">
               <strong>HIBA</strong>: {{registerResult.message}}
             </mat-error>
           </div>
 
-          <div class="block" style="margin-top:5%; margin-bottom: 20%">
+          <div class="block">
             <div *ngIf="!isBusy">
-              <div>
+              <div style="display: flex">
                 <button mat-flat-button color="primary"
                         class="wide-button"
                         [disabled]="!form.valid"
@@ -236,10 +236,10 @@
         </div>
       </div>
 
-      <div style="width:100%">
+      <div style="width:100%; margin-bottom: 20px;">
         <hr />
-        <button mat-flat-button type='button' color="primary" style="float: left; font-size: 2.5rem" [disabled]="stepArray[0]" (click)="stepBackward()">Vissza</button>
-        <button mat-flat-button type='button' color="primary" style="float: right; font-size: 2.5rem" [disabled]="stepArray[2] || !getPersonalForm().valid" (click)="stepForward()">Tovább</button>
+        <button mat-flat-button type='button' color="primary" style="float: left; font-size: 1.2rem" [hidden]="stepArray[0]" (click)="stepBackward()">Vissza</button>
+        <button mat-flat-button type='button' color="primary" style="float: right; font-size: 1.2rem" [hidden]="stepArray[2]" [disabled]="!getPersonalForm().valid" (click)="stepForward()">Tovább</button>
       </div>
     </form>
   </div>
