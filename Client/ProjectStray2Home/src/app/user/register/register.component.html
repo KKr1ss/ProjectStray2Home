@@ -208,7 +208,7 @@
             </mat-error>
           </div>
 
-          <div class="block">
+          <div class="block" style="align-content:center">
             <div *ngIf="!isBusy">
               <div style="display: flex">
                 <button mat-flat-button color="primary"
@@ -218,17 +218,6 @@
                   Regisztráció
                 </button>
               </div>
-              <div style="color: gray; text-align: center;">
-                vagy
-              </div>
-              <div style="text-align: center;">
-                <span>Már van fiókod? </span>
-                <span>
-                  <a [routerLink]="['/user/login']">
-                    <u>BELÉPÉS</u>
-                  </a>
-                </span>
-              </div>
             </div>
             <div *ngIf="isBusy; then loading">
             </div>
@@ -236,12 +225,26 @@
         </div>
       </div>
 
-      <div style="width:100%; margin-bottom: 20px;">
-        <hr />
+      <div style="width:100%; margin-bottom:50px">
         <button mat-flat-button type='button' color="primary" style="float: left; font-size: 1.2rem" [hidden]="stepArray[0]" (click)="stepBackward()">Vissza</button>
         <button mat-flat-button type='button' color="primary" style="float: right; font-size: 1.2rem" [hidden]="stepArray[2]" [disabled]="!getPersonalForm().valid" (click)="stepForward()">Tovább</button>
       </div>
     </form>
+
+    <div>
+      <hr />
+      <div style="color: gray; text-align: center;">
+        vagy
+      </div>
+      <div style="text-align: center;">
+        <span>Már van fiókod? </span>
+        <span>
+          <a [routerLink]="['/user/login']">
+            <u>BELÉPÉS</u>
+          </a>
+        </span>
+      </div>
+    </div>
   </div>
 </div>
 
