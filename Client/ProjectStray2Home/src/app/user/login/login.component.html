@@ -1,10 +1,10 @@
-<div class="login">
-
-  <div style="display:flex; text-align: center;">
-    <h1>
+<body>
+  <div style="text-align: center;">
+    <h2>
       Bejelentkezés
-    </h1>
+    </h2>
   </div>
+  <hr />
   <div class="login-form">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
@@ -34,7 +34,7 @@
         </mat-form-field>
       </div>
 
-      <div style="height: 2vh">
+      <div class="error-block">
         <mat-error *ngIf="loginResult && !loginResult.success" class="error-field">
           <strong>HIBA</strong>: {{loginResult.message}}
         </mat-error>
@@ -42,7 +42,7 @@
 
       <div class="block">
         <div *ngIf="!isBusy">
-          <div>
+          <div style="display:flex">
             <button mat-flat-button color="primary"
                     class="wide-button"
                     [disabled]="!form.valid"
@@ -50,6 +50,7 @@
               Bejelentkezés
             </button>
           </div>
+          <hr />
           <div class="separate" style="color:gray">
             vagy
           </div>
@@ -68,5 +69,4 @@
       </div>
     </form>
   </div>
-</div>
-
+</body>

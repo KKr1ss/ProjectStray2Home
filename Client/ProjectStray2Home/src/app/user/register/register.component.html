@@ -1,19 +1,20 @@
 <div class="register">
   <div style="text-align: center;">
-    <h1>
+    <h2>
       Regisztráció
-    </h1>
+    </h2>
     <hr />
   </div>
   <div class="register-form">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
       <!--Step 1: personal information-->
       <div *ngIf="stepArray[0]">
-        <h2>Személyes adatok</h2>
+        <h3>Személyes adatok</h3>
         <div formGroupName="personalForm">
           <div class="block">
             <!-- UserName -->
-            <mat-label>Felhasználónév</mat-label>
+            <mat-label>Felhasználónév*</mat-label>
             <mat-form-field>
               <input matInput formControlName="userName" required
                      placeholder="Felhasználónév">
@@ -26,7 +27,7 @@
 
           <div class="block">
             <!-- Email -->
-            <mat-label>Email cím</mat-label>
+            <mat-label>Email cím*</mat-label>
             <mat-form-field>
               <input matInput formControlName="email" required
                      placeholder="Email">
@@ -39,7 +40,7 @@
 
           <div class="block">
             <!-- Password -->
-            <mat-label>Jelszó</mat-label>
+            <mat-label>Jelszó*</mat-label>
             <mat-form-field>
               <input matInput type="password" formControlName="password" required
                      placeholder="Jelszó">
@@ -50,10 +51,10 @@
             </mat-form-field>
           </div>
 
-          <div class="container block">
-            <div>
+          <div class="container">
+            <div class="block">
               <!-- Lastname -->
-              <mat-label>Vezetéknév</mat-label>
+              <mat-label>Vezetéknév*</mat-label>
               <mat-form-field>
                 <input matInput formControlName="lastname" required
                        placeholder="Vezetéknév">
@@ -64,9 +65,9 @@
               </mat-form-field>
             </div>
 
-            <div>
+            <div class="block">
               <!-- Firstname -->
-              <mat-label>Keresztnév</mat-label>
+              <mat-label>Keresztnév*</mat-label>
               <mat-form-field>
                 <input matInput formControlName="firstname" required
                        placeholder="Keresztnév">
@@ -78,10 +79,10 @@
             </div>
           </div>
 
-          <div class="container block">
-            <div>
+          <div class="container">
+            <div class="block">
               <!-- Sex -->
-              <mat-label>Neme</mat-label>
+              <mat-label>Neme*</mat-label>
               <mat-form-field>
                 <mat-select formControlName="sex" placeholder="Kérlek válassz nemet!">
                   <mat-option value="Male">Férfi</mat-option>
@@ -94,9 +95,9 @@
               </mat-form-field>
             </div>
 
-            <div>
+            <div class="block">
               <!-- DateOfBirth -->
-              <mat-label>Születési dátum:</mat-label>
+              <mat-label>Születési dátum*</mat-label>
               <mat-form-field>
                 <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" required>
                 <!--<mat-hint>MM/DD/YYYY</mat-hint>-->
@@ -108,7 +109,7 @@
 
           <div class="block">
             <!-- PhoneNumber -->
-            <mat-label>Telefonszám</mat-label>
+            <mat-label>Telefonszám*</mat-label>
             <mat-form-field>
               <input matInput formControlName="phoneNumber" required
                      placeholder="Telefonszám">
@@ -121,7 +122,7 @@
 
           <div class="block">
             <!-- CurrentCity -->
-            <mat-label>Város</mat-label>
+            <mat-label>Város*</mat-label>
             <mat-form-field class="example-full-width" *ngIf="cities$ | async; else loading">
               <input type="text" matInput formControlName="currentCityInput" [matAutocomplete]="currentAuto" />
               <mat-autocomplete #currentAuto="matAutocomplete" [displayWith]="displayFn"
@@ -217,10 +218,10 @@
                   Regisztráció
                 </button>
               </div>
-              <div class="separate" style="color:gray">
+              <div style="color: gray; text-align: center;">
                 vagy
               </div>
-              <div class="separate">
+              <div style="text-align: center;">
                 <span>Már van fiókod? </span>
                 <span>
                   <a [routerLink]="['/user/login']">

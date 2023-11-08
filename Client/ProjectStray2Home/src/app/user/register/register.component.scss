@@ -1,38 +1,29 @@
 .register {
-  margin: 3% 23% 2% 23%;
-  padding: 5% 3% 5% 3%;
-  //background-image: linear-gradient(rgb(207 124 182/20%) 0 0);
+  margin: 3vh auto;
+  min-width: 320px;
+  max-width: 600px;
   background-color: white;
-  border: solid #835AA1 0.6rem;
+  border: solid #835AA1 4px;
   border-radius: 50px;
 }
 
 .register-form {
-  padding: 0% 5% 5% 5%;
-}
-
-.container {
-  display: grid;
-  //align-items: start;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 1vh;
+  margin: 5%;
+  padding-bottom: 5%;
 }
 
 mat-form-field {
   display: block;
-  font-size: 2rem;
+  font-size: 1.1em;
   width: 100%;
 }
 
 .block {
-  height: 10vh;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  height: 120px;
 }
 
 .separate {
   text-align: center;
-  margin-top: 5%
 }
 
 .file-input {
@@ -52,4 +43,14 @@ img {
   object-fit: cover;
   border-radius: 20px;
   border: solid #835AA1 0.3rem;
+}
+
+
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+  }
 }

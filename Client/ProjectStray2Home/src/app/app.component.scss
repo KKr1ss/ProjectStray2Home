@@ -4,27 +4,38 @@ app-nav-menu {
   top: 0px;
   left: 0px;
   z-index: 2;
-  width: 100%
+  width: 100%;
 }
 
 .container {
   display: flex;
   flex-flow: column;
   height: 95vh;
+  padding: 0;
   padding-top: 5vh;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .inner-container {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
   flex: 1;
-  padding: 2%;
   max-width: 1400px;
   margin: 0 auto;
+  padding: 2rem 2%;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  
 }
 
 @media only screen and (min-width: 768px) {
   .inner-container {
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
     font-size: 18px;
   }
 }
