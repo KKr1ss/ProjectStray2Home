@@ -1,34 +1,36 @@
-.horizontal-container {
+.horizontal-image-container {
   display: grid;
-  //align-items: start;
-  grid-template-columns: 2.5fr 1fr;
   align-items: start;
 }
 
 .animal-image-container {
-  height: 40vh;
+  height: 300px;
   width: 100%;
-  margin-bottom: 2%;
+  overflow: hidden;
+  margin: 1em auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .animal-image {
-  height: 40vh;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .animal-image-preview-container {
-  width: 5%;
   aspect-ratio: 1 / 1;
 }
 
 .animal-image-preview {
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center center;
-  width: 150px;
-  height: 150px;
-  border-radius: 10px
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 10px;
 }
 
 .animal-image-preview:hover {
@@ -36,19 +38,17 @@
   filter: brightness(90%);
 }
 
-.user-container {
-  margin: 3% 0% 3% 0%;
+.white-container {
+  margin-top: 1rem;
   padding: 5% 3% 5% 3%;
-  //background-image: linear-gradient(rgb(207 124 182/20%) 0 0);
   background-color: white;
-  border: solid #835AA1 0.6rem;
+  border: solid #835AA1 4px;
   border-radius: 50px;
 }
 
 .horizontal-user-container {
   background-image: linear-gradient(rgb(207 124 182/20%) 0 0);
   display: grid;
-  //align-items: start;
   grid-template-columns: 1fr 2fr;
   align-items: center;
   border-radius: 60px
@@ -60,6 +60,17 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
+}
+
+.horizontal-details-comments-container {
+  display: grid;
+  align-items: start;
+  text-align: start
+}
+
+.horizontal-details-container {
+  display: grid;
+  align-items: start;
 }
 
 mat-grid-list {
@@ -78,11 +89,31 @@ mat-form-field {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  display: block;
 }
 
 .comment-downline {
-  font-size: 1rem;
   font-style: italic;
   text-align: end;
   padding-right: 2%
+}
+
+
+@media only screen and (min-width: 768px) {
+  .horizontal-details-container {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1em;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .horizontal-image-container {
+    grid-template-columns: 2.5fr 1fr;
+    grid-column-gap: 1em;
+  }
+
+  .horizontal-details-comments-container {
+    grid-template-columns: 1.7fr 1fr;
+    grid-column-gap: 1em;
+  }
 }

@@ -46,20 +46,21 @@ $ProjectStray2Home-theme: mat.define-light-theme((
 
 html, body {
   height: 100%;
-  min-width: 320px;
   background-color: #F7F4ED;
   margin: 0%;
   padding: 0%;
+  
 }
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-width: 320px;
 }
 
 footer {
   background-color: #E6E3DD;
   text-align: center;
-  padding: 2% 15% 2% 15%;
-  margin: 0%;
+  padding: 2% 15%;
+  margin: 0 auto;
   flex: auto;
   display: flex;
   flex-direction: column;

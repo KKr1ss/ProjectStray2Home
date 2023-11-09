@@ -1,12 +1,12 @@
-<div class="upload">
+<body>
   <div style="text-align: center;">
-    <h1>Állat feltöltése</h1>
+    <h2>Állat feltöltése</h2>
     <hr />
   </div>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="upload-form">
     <div class="block">
       <!-- Name -->
-      <mat-label>Az állat neve</mat-label>
+      <mat-label>Az állat neve*</mat-label>
       <mat-form-field>
         <input matInput formControlName="name" required
                placeholder="Név">
@@ -17,10 +17,10 @@
       </mat-form-field>
     </div>
 
-    <div class="container block">
-      <div>
+    <div class="horizontal-container">
+      <div class="block">
         <!-- Animal type -->
-        <mat-label>Típus</mat-label>
+        <mat-label>Típus*</mat-label>
         <mat-form-field>
           <mat-select formControlName="type" placeholder="Kérlek válaszd ki az állatot!">
             <mat-option *ngFor="let animalType of animalTypes" [value]="animalType">{{animalType | animalTypeConverter}}</mat-option>
@@ -32,9 +32,9 @@
         </mat-form-field>
       </div>
 
-      <div>
+      <div class="block">
         <!-- Breed -->
-        <mat-label>Fajta</mat-label>
+        <mat-label>Fajta*</mat-label>
         <mat-form-field>
 
           <input matInput formControlName="breed" required
@@ -47,10 +47,10 @@
       </div>
     </div>
 
-    <div class="container block">
-      <div>
+    <div class="horizontal-container">
+      <div class="block">
         <!-- Sex -->
-        <mat-label>Neme</mat-label>
+        <mat-label>Neme*</mat-label>
         <mat-form-field>
 
           <mat-select formControlName="sex" placeholder="Kérlek válassz nemet!">
@@ -63,9 +63,9 @@
         </mat-form-field>
       </div>
 
-      <div>
+      <div class="block">
         <!-- DateOfBirth -->
-        <mat-label>Születési dátum</mat-label>
+        <mat-label>Születési dátum*</mat-label>
         <mat-form-field>
           <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
           <mat-hint>év/hó/nap</mat-hint>
@@ -77,7 +77,7 @@
 
     <div class="block">
       <!-- Status city -->
-      <mat-label>Az állat helye</mat-label>
+      <mat-label>Az állat helye*</mat-label>
       <mat-form-field class="example-full-width" *ngIf="cities$ | async; else loading">
 
         <input type="text" matInput formControlName="cityInput" [matAutocomplete]="auto" />
@@ -96,7 +96,7 @@
 
     <div class="block">
       <!-- Characteristic  -->
-      <mat-label>Külső leírás</mat-label>
+      <mat-label>Külső leírás*</mat-label>
       <mat-form-field>
         <input matInput formControlName="characteristic" required
                placeholder="Külső leírás">
@@ -109,7 +109,7 @@
 
     <div class="block">
       <!-- Behavior -->
-      <mat-label>Viselkedés</mat-label>
+      <mat-label>Viselkedés*</mat-label>
       <mat-form-field>
         <input matInput formControlName="behavior" required
                placeholder="Viselkedés">
@@ -120,16 +120,16 @@
       </mat-form-field>
     </div>
 
-    <div class="container block" style=" grid-template-columns: 1fr 2fr">
+    <div class="horizontal-unequal-container">
       <!-- IsChipped -->
-      <div>
+      <div class="block">
         <mat-label>Chip állapota</mat-label><br />
         <mat-checkbox formControlName="isChipped">Chippelve van</mat-checkbox>
       </div>
 
-      <div>
+      <div class="block">
         <!-- Status -->
-        <mat-label>Státusz</mat-label>
+        <mat-label>Státusz*</mat-label>
         <mat-form-field>
           <mat-select formControlName="status" placeholder="Kérlek válaszd ki az állat státuszát!">
             <mat-option *ngFor="let animal of animalStatus" [value]="animal">{{animal | animalStatusConverter}}</mat-option>
@@ -170,14 +170,15 @@
       </div>
     </div>
     <hr />
-    <div style="height:2vh">
+
+    <div style="height: 2.4rem">
       <mat-error *ngIf="uploadResult && !uploadResult.success" class="error-field">
         <strong>HIBA</strong>: {{uploadResult.message}}
       </mat-error>
     </div>
 
-    <div class="block" style="margin-top:5%;">
-      <div *ngIf="!isBusy">
+    <div class="block">
+      <div *ngIf="!isBusy" style="display: flex">
         <button mat-flat-button color="primary"
                 [disabled]="!form.valid"
                 type="submit"
@@ -189,7 +190,7 @@
       </div>
     </div>
   </form>
-</div>
+</body>
 
 
 <ng-template #loading>

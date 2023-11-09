@@ -1,16 +1,16 @@
 <div *ngIf="animal$ | async as animal; else loading">
-  <h1>{{animal.name}} - {{animal.status | animalStatusConverter}}</h1>
+  <h2>{{animal.name}} - {{animal.status | animalStatusConverter}}</h2>
   <hr />
-  <div class="horizontal-container">
+  <div class="horizontal-image-container">
     <div>
       <div *ngIf="animal.animalImagesId.length!=0">
         <div class="animal-image-container">
           <img *ngIf="!isBusy; else loading" [src]="selectedImage" alt="Selected Image" class="animal-image" />
         </div>
-        <div style="margin: auto; width: 40%">
+        <div style="margin: auto; max-width: 400px">
           <mat-grid-list cols="{{animal.animalImagesId.length}}" columnSpan="0" rowHeight="150px">
-            <mat-grid-tile *ngFor="let animalImage of animalImages" class="animal-image-preview-container">
-              <div *ngIf="animalImage.image$ | async as image; else loading">
+            <mat-grid-tile *ngFor="let animalImage of animalImages">
+              <div *ngIf="animalImage.image$ | async as image; else loading" class="animal-image-preview-container">
                 <img [src]="image" class="animal-image-preview" alt="előnézet" (change)="setSelectedImage($event.target)" (click)="setSelectedImage($event.target)" [id]="'animalImage'+animalImage.id" />
               </div>
             </mat-grid-tile>
@@ -21,10 +21,10 @@
         <em>Nincs kép feltöltve</em>
       </div>
     </div>
-    <div class="user-container">
-      <h2>
+    <div class="white-container">
+      <h3>
         Kapcsolat
-      </h2>
+      </h3>
       <mat-list>
         <mat-list-item>Név: {{animal.userPreview.lastName}} {{animal.userPreview.firstName}}</mat-list-item>
         <mat-list-item>Telefonszám: {{animal.userPreview.phoneNumber}}</mat-list-item>
@@ -44,13 +44,12 @@
     </div>
   </div>
   <hr />
-  <div class="horizontal-container" style="grid-template-columns: 1.7fr 1fr; text-align: start">
+  <div class="horizontal-details-comments-container">
     <div>
-      <h2>
+      <h3>
         További adatok
-      </h2>
-
-      <div class="horizontal-container" style="grid-template-columns: 1fr 1fr;">
+      </h3>
+      <div class="horizontal-details-container">
         <div>
           <h4>Fajta</h4>
           {{animal.type | animalTypeConverter}}, {{animal.breed}}
@@ -77,19 +76,28 @@
       </div>
     </div>
 
-    <div class="user-container">
-
-      <h2>Kommentek</h2>
+    <div class="white-container">
+      <h3>Kommentek</h3>
       <hr />
-      <mat-list style="height: 20vh; overflow: auto;">
-        <mat-list-item *ngFor="let comment of animal.comments" style="height:40%;">
+      <div style="height: 250px; overflow: auto; width: 100%;">
+        <div *ngFor="let comment of animal.comments" style="margin-bottom:1em">
           <div>
-            {{comment.comment}}<br />
-                               <p class="comment-downline"><a [routerLink]="['/user/',comment.user.userName]"><u>{{comment.user.userName}}</u></a>, {{comment.createDate | date: 'yyyy.mm.dd hh:mm'}}</p>
+              {{comment.comment}}
+              <br>
+              <div class="comment-downline" style="margin-top:1em">
+                <span>
+                  <a [routerLink]="['/user/',comment.user.userName]">
+                    <u>{{comment.user.userName}}</u>
+                  </a>
+                </span>
+                <span>
+                  {{comment.createDate | date: 'yyyy.mm.dd hh:mm'}}
+                </span>
+              </div>
           </div>
-        <hr />
-        </mat-list-item>
-      </mat-list>
+          <hr />
+        </div>
+      </div>
       <hr />
       <form *ngIf="isLoggedIn" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="horizontal-container" style="grid-template-columns: 3fr 1fr; text-align: center">
