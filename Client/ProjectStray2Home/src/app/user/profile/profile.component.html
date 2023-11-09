@@ -1,13 +1,10 @@
 <div *ngIf="profile$ | async as profile; else loading">
-  <div class="title-background"></div>
-  <div class="horizontal-container" style="background-image: linear-gradient(rgb(207 124 182/20%) 0 0); width:50%; border-radius: 125px">
-    <div class="image-container">
-      <div *ngIf="profile.image$ | async as image; else loading">
-        <img [src]="image" class="profile-image clip-circle" alt="profil kép"/>
-      </div>
+  <div class="title-horizontal-container">
+    <div class="image-container" *ngIf="profile.image$ | async as image; else loading">
+      <img [src]="image" class="profile-image clip-circle" alt="profil kép" />
     </div>
     <div>
-      <h1>{{profile.userName}}</h1>
+      <h2>{{profile.userName}}</h2>
     </div>
   </div>
   <hr />
@@ -24,7 +21,7 @@
             Leírás: <br />
             {{profile.description}}
           </mat-list-item>
-        </mat-list>  
+        </mat-list>
       </div>
     </div>
     <div>
@@ -33,7 +30,7 @@
         <span>{{profile.animals.length}} db</span>
       </h3>
       <div>
-        <mat-grid-list cols="4" style="width: 100%;" rowHeight="30vh">
+        <mat-grid-list cols="4" style="width: 100%;" [cols]="(isTablet$ | async) ? 4 : 2" rowHeight="1:1.6" [gutterSize]="'1vw'">
           <mat-grid-tile *ngFor="let animal of profile.animals">
             <div class="tile">
               <app-small-animal-thumbnail [animal]="animal"></app-small-animal-thumbnail>

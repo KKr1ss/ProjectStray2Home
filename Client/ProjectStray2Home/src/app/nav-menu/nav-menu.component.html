@@ -21,13 +21,13 @@
         </mat-icon>
       </button>
       <mat-menu #loggedOutMenu="matMenu" class="matCustomize" yPosition="below">
-        <a mat-menu-item [routerLink]="['/user/login']">
+        <button mat-menu-item [routerLink]="['/user/login']">
           Bejelentkezés
-        </a>
+        </button>
         <hr />
-        <a style="margin-bottom: 10%" mat-menu-item [routerLink]="['/user/register']">
+        <button style="margin-bottom: 10%" mat-menu-item [routerLink]="['/user/register']">
           Regisztráció
-        </a>
+        </button>
       </mat-menu>
 
       <button *ngIf="isLoggedIn" mat-button [matMenuTriggerFor]="loggedInMenu">{{username}}</button>
