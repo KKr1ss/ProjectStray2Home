@@ -2,13 +2,13 @@
 <hr />
 
 <div *ngIf="animals$ | async as animals; else loading">
-  <mat-grid-list cols="5" style="width: 100%;" rowHeight=35vh>
-    <mat-grid-tile *ngFor="let animal of animals">
-      <div class="tile">
+  <mat-list style="width: 100%;">
+    <mat-list-item *ngFor="let animal of animals" style="height:400px" class="animal-tile">
+      <div >
         <app-animal-thumbnail [animal]="animal"></app-animal-thumbnail>
       </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+    </mat-list-item>
+  </mat-list>
 </div>
 <div [hidden]="isBusy">
   <mat-paginator (page)="getData($event)"

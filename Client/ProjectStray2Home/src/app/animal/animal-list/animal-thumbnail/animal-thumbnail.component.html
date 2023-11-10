@@ -1,18 +1,24 @@
-<div *ngIf="animal.image$ | async as image; else loading" class="tile" [routerLink]="['/animals', animal.id]">
+<div *ngIf="animal.image$ | async as image; else loading"
+     class="tile horizontal-container"
+     [routerLink]="['/animals', animal.id]">
 
-  <div class="animal-tile">
-    <span style="font-size: 2rem; font-weight: 600; color: #835AA1; ">{{animal.name}}</span>
-    <span style="font-size: 1.6rem; font-weight:400">, {{animal.city}}</span>
+  <div class="animal-image-container">
+    <img [src]="image" class="animal-image" id="animalImage" alt="állat kép" />
   </div>
 
-  <div class="animal-container">
-    <img [src]="image" class="animal-image" id="animalImage" alt="állat kép"/>
+  <div style="display: grid; height: 100%">
+    <div class="animal-tile">
+      <div style="font-size: 1.4rem; color: #50487E; font-weight: 500">{{animal.name}}</div> <br />
+      {{animal.breed}} {{animal.type | animalTypeConverter}}
+      <hr />
+    </div>
+    
+    <div class="animal-tile" style="margin: auto 0">
+      {{animal.city}}<br />
+      {{animal.status | animalStatusConverter}}, {{days}}
+    </div>
   </div>
-
-  <div class="animal-tile">
-    <div style="font-size: 1.5rem; font-weight:500">{{animal.breed}} {{animal.type | animalTypeConverter}}<br /></div>
-    {{animal.status | animalStatusConverter}}, {{days}}
-  </div>
+  
 </div>
 
 <ng-template #loading>
