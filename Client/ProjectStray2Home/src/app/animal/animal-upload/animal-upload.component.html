@@ -52,7 +52,6 @@
         <!-- Sex -->
         <mat-label>Neme*</mat-label>
         <mat-form-field>
-
           <mat-select formControlName="sex" placeholder="Kérlek válassz nemet!">
             <mat-option *ngFor="let sx of sex" [value]="sx">{{sx | animalSexConverter}}</mat-option>
           </mat-select>
@@ -65,7 +64,7 @@
 
       <div class="block">
         <!-- DateOfBirth -->
-        <mat-label>Születési dátum*</mat-label>
+        <mat-label>Születési dátum</mat-label>
         <mat-form-field>
           <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
           <mat-hint>év/hó/nap</mat-hint>
@@ -123,8 +122,18 @@
     <div class="horizontal-unequal-container">
       <!-- IsChipped -->
       <div class="block">
-        <mat-label>Chip állapota</mat-label><br />
-        <mat-checkbox formControlName="isChipped">Chippelve van</mat-checkbox>
+        <mat-label>Chip állapota*</mat-label><br />
+        <mat-form-field>
+          <mat-select formControlName="isChipped" placeholder="Chip állapota">
+            <mat-option [value]="true">Chippelve van</mat-option>
+            <mat-option [value]="false">Nincs chippelve</mat-option>
+            <mat-option value="">Ismeretlen</mat-option>
+          </mat-select>
+          <mat-error *ngFor="let error of getErrors(form.get('isChipped')!,
+'Chip')">
+            {{error}}
+          </mat-error>
+        </mat-form-field>
       </div>
 
       <div class="block">

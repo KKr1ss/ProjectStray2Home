@@ -17,7 +17,7 @@ namespace ProjectStrayToHomeAPI.Models.DTO.Animals
         public DateTime? DateOfBirth { get; set; }
         public string Characteristic { get; set; }
         public string Behavior { get; set; }
-        public bool IsChipped { get; set; }
+        public bool? IsChipped { get; set; }
         public string Status { get; set; }
         public string? StatusDescription { get; set; }
         public string? UserID { get; set; }

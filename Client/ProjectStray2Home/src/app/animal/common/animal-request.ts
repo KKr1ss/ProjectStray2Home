@@ -7,7 +7,7 @@ export interface AnimalRequest {
   dateOfBirth?: Date;
   characteristic: string;
   behavior: string;
-  isChipped: boolean;
+  isChipped?: boolean;
   status: string;
   statusDescription?: string;
   cityID: string;

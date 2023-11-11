@@ -57,6 +57,7 @@
           {{animal.sex | animalSexConverter}}
           <h4>Születési dátum</h4>
           {{animal.dateOfBirth | date: 'yyyy.MM.dd'}}
+          <div *ngIf="animal.dateOfBirth === null">Ismeretlen</div>
           <h4>Külső leírás</h4>
           {{animal.characteristic}}
           <h4>Viselkedés</h4>
@@ -71,6 +72,7 @@
           </div>
           <h4>Chippeltetve-van?</h4>
           {{animal.isChipped ? "Igen" : "Nem"}}
+          <div *ngIf="animal.isChipped === null">Ismeretlen</div>
 
         </div>
       </div>

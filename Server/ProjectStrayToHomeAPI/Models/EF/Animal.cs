@@ -59,7 +59,7 @@ namespace ProjectStray2HomeAPI.Models.EF
         /// Does the animal have chip
         /// </summary>
         [Required]
-        public bool IsChipped { get; set; }
+        public bool? IsChipped { get; set; }
 
         /// <summary>
         /// The current status of the animal
