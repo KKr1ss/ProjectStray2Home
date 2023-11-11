@@ -27,6 +27,7 @@ export class AnimalDetailsComponent implements OnInit {
   form!: FormGroup;
   commentResult?: APIResult;
   isLoggedIn: boolean = false;
+  chipDescription: string = "Ismeretlen";
 
   constructor(
     private authService: AuthService,
@@ -53,6 +54,8 @@ export class AnimalDetailsComponent implements OnInit {
 
   getData(): void {
     this.animal$ = this.animalService.getAnimalDetails(this.id).pipe(tap((x: AnimalDetails) => {
+      if (x.isChipped == true) this.chipDescription = "Igen";
+      if (x.isChipped == false) this.chipDescription = "Nem";
       if (x.animalImagesId.length != 0)
         this.loadAnimalImages(x.id, x.animalImagesId)
       x.userPreview.image$ = this.imageDownloadService.getUserProfileImage(x.userPreview.userName).pipe(map((y: Blob) => {

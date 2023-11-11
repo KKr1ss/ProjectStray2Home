@@ -66,8 +66,7 @@
         <!-- DateOfBirth -->
         <mat-label>Születési dátum</mat-label>
         <mat-form-field>
-          <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
-          <mat-hint>év/hó/nap</mat-hint>
+          <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" placeholder="év. hó. nap.">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
@@ -166,7 +165,7 @@
 
     <div class="block">
       <!-- Image -->
-      <mat-label>Fotók feltöltése</mat-label>
+      <mat-label>Fotók feltöltése*</mat-label>
       <input formcontrolname="imageFiles" required type="file" accept="image/png, image/gif, image/jpeg, image/jpg"
              multiple="" class="file-input" (change)="onFileChange($event)" #fileUpload>
       <div class="file-upload">
