@@ -108,11 +108,12 @@ namespace ProjectStrayToHomeAPI.Controllers
 
         [HttpGet("GetAnimals")]
         [AllowAnonymous]
-        public async Task<IActionResult> GetAnimals(int pageIndex = 0, int pageSize = 20)
+        public async Task<IActionResult> GetAnimals(int pageIndex = 0, int pageSize = 20
+            , string? name = "", string? status = "", string? city = "", string? type = "", string? sex = "")
         {
             try
             {
-                var result = await _animalService.GetAnimals(pageIndex, pageSize);
+                var result = await _animalService.GetAnimals(pageIndex, pageSize, name, status, city, type, sex);
 
                 return Ok(result);
             }
@@ -122,5 +123,6 @@ namespace ProjectStrayToHomeAPI.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
     }
 }

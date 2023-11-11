@@ -1,17 +1,88 @@
 <h1>Elveszett állatok</h1>
 <hr />
 
-<div *ngIf="animals$ | async as animals; else loading">
-  <mat-list style="width: 100%;">
-    <mat-list-item *ngFor="let animal of animals" style="height:400px" class="animal-tile">
-      <div >
-        <app-animal-thumbnail [animal]="animal"></app-animal-thumbnail>
+<div class="horizontal-container">
+  <div class="white-container">
+    <h2 style="text-align: center;">Szűrés</h2>
+    <hr />
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="filter-form">
+      <div class="form-block">
+        <!--Name-->
+        <mat-label>Név</mat-label>
+        <mat-form-field>
+          <input matInput formControlName="name" placeholder="Név">
+        </mat-form-field>
       </div>
-    </mat-list-item>
-  </mat-list>
+
+      <div class="form-block">
+        <!--Status-->
+        <mat-label>Státusz</mat-label>
+        <mat-radio-group formControlName="status">
+          <mat-radio-button value="">Összes</mat-radio-button>
+          <mat-radio-button *ngFor="let status of animalStatus | keyvalue" [value]="status.value">{{status.value | animalStatusConverter}}</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="form-block">
+        <!--City-->
+        <mat-label>Város</mat-label>
+        <mat-form-field>
+          <input matInput formControlName="city" placeholder="Név">
+        </mat-form-field>
+      </div>
+
+      <div class="form-block">
+        <!--Type-->
+        <mat-label>Típus</mat-label>
+        <mat-radio-group formControlName="type">
+          <mat-radio-button value="">Összes</mat-radio-button>
+          <mat-radio-button *ngFor="let type of animalType | keyvalue" [value]="type.value">{{type.value | animalTypeConverter}}</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="form-block">
+        <!--Sex-->
+        <mat-label>Nem</mat-label>
+        <mat-radio-group formControlName="sex">
+          <mat-radio-button value="">Összes</mat-radio-button>
+          <mat-radio-button *ngFor="let sex of animalSex | keyvalue" [value]="sex.value">{{sex.value | animalSexConverter}}</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <hr />
+      <div style="height: 70px">
+        <div *ngIf="!isBusy" style="display: flex">
+          <button mat-flat-button color="primary"
+                  [disabled]="!form.valid"
+                  type="submit"
+                  class="wide-button">
+            Szűrés
+          </button>
+        </div>
+        <div *ngIf="isBusy; then loading">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="animals$ | async as animals; else loading">
+    <mat-list style="width: 100%;">
+      <div [hidden]="animals.length != 0">
+        <mat-error class="error-field">
+          <strong>Nem található ilyen állat a listában!</strong>
+        </mat-error>
+      </div>
+      <mat-list-item *ngFor="let animal of animals" class="animal-tile">
+        <div>
+          <app-animal-thumbnail [animal]="animal"></app-animal-thumbnail>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
 </div>
-<div [hidden]="isBusy">
-  <mat-paginator (page)="getData($event)"
+
+
+<div [hidden]="isBusy" class="center">
+  <mat-paginator class="mat-paginator-container" (page)="getData($event)"
                  [pageSize]="20"
                  [pageSizeOptions]="[10, 20, 50]"
                  showFirstLastButtons></mat-paginator>

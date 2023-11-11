@@ -7,6 +7,7 @@ namespace ProjectStrayToHomeAPI.Repositories.Interfaces
     {
         Task<List<Animal>> GetAnimalsConnectedAsync(List<Animal> animals, bool withImages);
         Task<Animal> GetAnimalConnectedAsync(Animal animal, bool withImages);
-        Task<List<Animal>> GetPaginatedAnimalsAsync(int pageIndex, int pageSize);
+        List<Animal> GetPaginatedAnimals(List<Animal> animals, int pageIndex, int pageSize);
+        List<Animal> GetFilteredAnimals(List<Animal> animals, string? name, string? status, string? city, string? type, string? sex);
     }
 }

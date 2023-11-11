@@ -11,6 +11,6 @@ namespace ProjectStrayToHomeAPI.Services.Interfaces
 
         Task<AnimalDetailsDTO?> GetAnimalDetails(int id);
 
-        Task<PaginatorResultDTO<AnimalPreviewDTO>> GetAnimals(int pageIndex, int pageSize);
+        Task<PaginatorResultDTO<AnimalPreviewDTO>> GetAnimals(int pageIndex, int pageSize, string? name, string? status, string? city, string? type, string? sex);
     }
 }

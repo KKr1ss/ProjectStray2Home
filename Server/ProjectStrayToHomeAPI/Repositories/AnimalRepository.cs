@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjectStray2HomeAPI.Data;
+using ProjectStray2HomeAPI.Models;
 using ProjectStray2HomeAPI.Models.EF;
 using ProjectStrayToHomeAPI.Repositories.Base;
 using ProjectStrayToHomeAPI.Repositories.Interfaces;
@@ -39,14 +40,34 @@ namespace ProjectStrayToHomeAPI.Repositories
             return animalToReturn;
         }
 
-        public async Task<List<Animal>> GetPaginatedAnimalsAsync(int pageIndex, int pageSize)
+        public List<Animal> GetPaginatedAnimals(List<Animal> animals, int pageIndex, int pageSize)
         {
-            var result = await _context.Animals.AsNoTracking()
-                .OrderByDescending(x=>x.StatusDate)
+            var result = animals
+                .OrderByDescending(x => x.StatusDate)
                 .Skip(pageIndex * pageSize)
                 .Take(pageSize)
-                .ToListAsync();
+                .ToList();
             return result;
+        }
+
+        public List<Animal> GetFilteredAnimals(List<Animal> animals, string? name, string? status, string? city, string? type, string? sex)
+        {
+            if (name != null)
+                animals = animals.Where(animal => animal.Name.ToLower().Contains(name.ToLower())).ToList();
+
+            if (status != null)
+                animals = animals.Where(animal => animal.Status == Enum.Parse<Animal_Status>(status, true)).ToList();
+
+            if (city != null)
+                animals = animals.Where(animal => animal.City!.Name.ToLower().Contains(city.ToLower())).ToList();
+
+            if (type != null)
+                animals = animals.Where(animal => animal.Type == Enum.Parse<Animal_Type>(type, true)).ToList();
+
+            if (sex != null)
+                animals = animals.Where(animal => animal.Sex == Enum.Parse<Sex>(sex, true)).ToList();
+
+            return animals;
         }
     }
 }

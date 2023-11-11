@@ -6,10 +6,10 @@
     <img [src]="image" class="animal-image" id="animalImage" alt="állat kép" />
   </div>
 
-  <div style="display: grid; height: 100%">
+  <div style="display: grid; height: 96%; padding: 2%">
     <div class="animal-tile">
       <div style="font-size: 1.4rem; color: #50487E; font-weight: 500">{{animal.name}}</div> <br />
-      {{animal.breed}} {{animal.type | animalTypeConverter}}
+      {{animal.type | animalTypeConverter}}, {{animal.breed}}
       <hr />
     </div>
     

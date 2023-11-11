@@ -6,6 +6,7 @@ export class AnimalSexConvererPipe implements PipeTransform {
       switch (sex) {
         case Sex.Female: return "Nőstény";
         case Sex.Male: return "Hím";
+        case Sex.Unknown: return "Ismeretlen";
         default: return "Hím"
       }
         

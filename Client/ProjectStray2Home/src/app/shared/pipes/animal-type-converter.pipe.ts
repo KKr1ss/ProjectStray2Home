@@ -6,6 +6,7 @@ export class AnimalTypeConvererPipe implements PipeTransform {
       switch (type) {
         case AnimalType.Dog: return "Kutya";
         case AnimalType.Cat: return "Macska";
+        case AnimalType.Other: return "Egyéb";
         default: return "Macska"
       }
     }

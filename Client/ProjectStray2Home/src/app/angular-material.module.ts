@@ -15,6 +15,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioModule
   ],
   exports: [
     MatButtonModule,
@@ -51,7 +53,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'hu-HU' }

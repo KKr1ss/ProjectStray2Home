@@ -1,18 +1,20 @@
 export enum AnimalStatus {
-  Home = "Home",
   Lost = "Lost",
+  Stray = "Stray",
   Rescued = "Rescued", 
-  Stray = "Stray"
+  Home = "Home",
 }
 
 export enum AnimalType {
   Cat = "Cat", 
-  Dog = "Dog"
+  Dog = "Dog",
+  Other = "Other"
 }
 
 export enum Sex {
   Male = "Male",
-  Female = "Female"
+  Female = "Female",
+  Unknown = "Unknown"
 }
 
 export enum Roles {

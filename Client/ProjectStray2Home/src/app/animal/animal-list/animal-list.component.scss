@@ -1,4 +1,59 @@
+.horizontal-container {
+  display: grid;
+  align-items: start;
+}
+
+.white-container {
+  margin-top: 1rem;
+  background-color: white;
+  border: solid #835AA1 4px;
+  border-radius: 50px;
+}
+
+form {
+    padding: 5% 3% 5% 3%;
+}
+
+.form-block {
+    display: grid;
+    margin-bottom: 1rem;
+}
+
+mat-form-field {
+  display: block;
+  font-size: 1.1em;
+  width: 100%;
+}
+
 .animal-tile {
+  height: 400px !important;
   display: block;
   margin: 1rem auto;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+
+  .animal-tile {
+    height: 280px !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .horizontal-container {
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 1em;
+  }
+  }
+
+.center {
+  margin: auto;
+  width: 100%;
+}
+
+.mat-paginator-container {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
 }

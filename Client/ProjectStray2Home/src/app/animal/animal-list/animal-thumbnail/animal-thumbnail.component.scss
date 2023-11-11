@@ -1,17 +1,14 @@
-.tile {
-  border: solid #835AA1 4px;
+.horizontal-container {
   display: grid;
+  border: solid #835AA1 4px;
   height: 100%;
 }
 
-.tile:hover {
+.horizontal-container:hover {
   background: lightgray;
   filter: brightness(95%);
 }
 
-.horizontal-container {
-  display: grid;
-}
 
 .animal-image-container {
   height: 250px;
@@ -33,7 +30,6 @@
 
 .animal-tile {
   font-size: 1.1rem;
-  padding: 0;
   margin: 0;
 }
 

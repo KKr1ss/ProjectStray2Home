@@ -106,10 +106,13 @@ namespace ProjectStrayToHomeAPI.Services
             }
         }
 
-        public async Task<PaginatorResultDTO<AnimalPreviewDTO>> GetAnimals(int pageIndex, int pageSize)
+        public async Task<PaginatorResultDTO<AnimalPreviewDTO>> GetAnimals(int pageIndex, int pageSize, string? name, string? status, string? city, string? type, string? sex)
         {
-            var data = await _repositoryManager.Animals.GetPaginatedAnimalsAsync(pageIndex, pageSize);
+            List<Animal> data = (await _repositoryManager.Animals.FindAllAsync()).ToList();
             data = await _repositoryManager.Animals.GetAnimalsConnectedAsync(data, false);
+            data = _repositoryManager.Animals.GetFilteredAnimals(data, name, status, city, type, sex);
+            data = _repositoryManager.Animals.GetPaginatedAnimals(data, pageIndex, pageSize);
+
             var mappedData = new List<AnimalPreviewDTO>();
             foreach (var animal in data)
             {
