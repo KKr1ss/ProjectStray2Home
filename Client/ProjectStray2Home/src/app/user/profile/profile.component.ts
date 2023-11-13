@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { catchError, map, Observable, of} from 'rxjs';
+import { catchError, delay, map, Observable, of, retryWhen} from 'rxjs';
 import { BreakpointService } from '../../common/breakpoint.service';
 import { ImageDownloadService } from '../../common/image-download.service';
 import { AssetUrls } from '../../shared/asset-urls';
@@ -38,10 +38,12 @@ export class ProfileComponent implements OnInit {
           catchError((err: HttpErrorResponse) => {
             console.log(err.message);
             return of(AssetUrls.defaultUserImageUrl);
-          })
+          }),
+          retryWhen(error => error.pipe(delay(1000)))
         )
         return x;
-      }))
+      }),
+        retryWhen(error => error.pipe(delay(1000))))
     })
 
      this.isTablet$ = this.breakpointService.isTablet();

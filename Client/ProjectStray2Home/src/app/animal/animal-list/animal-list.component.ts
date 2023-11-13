@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, delay, map, Observable, of, retryWhen } from 'rxjs';
 import { AnimalStatus, AnimalType, Sex } from '../../shared/enums/enums';
 import { AuthService } from '../../user/common/auth.service';
 import { AnimalFilter } from '../common/animal-filter';
@@ -41,8 +41,6 @@ export class AnimalListComponent implements OnInit {
 
     this.loadData();
 
-    
-
     this.form = new FormGroup({
       name: new FormControl(''),
       status: new FormControl(''),
@@ -66,6 +64,7 @@ export class AnimalListComponent implements OnInit {
       this.isBusy = false;
       return result.data;
     }),
+      retryWhen(error => error.pipe(delay(1000))),
       catchError((err: HttpErrorResponse) => {
         console.log(err.message);
         return of();

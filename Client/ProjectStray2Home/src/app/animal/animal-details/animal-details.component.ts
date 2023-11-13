@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { catchError, map, Observable, of, tap } from 'rxjs';
+import { catchError, delay, map, Observable, of, retryWhen, tap } from 'rxjs';
 import { APIResult } from '../../common/api-result';
 import { ImageDownloadService } from '../../common/image-download.service';
 import { AssetUrls } from '../../shared/asset-urls';
@@ -64,16 +64,18 @@ export class AnimalDetailsComponent implements OnInit {
         catchError((err: HttpErrorResponse) => {
           console.log("Error: " + err)
           return of(AssetUrls.defaultUserImageUrl);
-        })
+        }),
+        retryWhen(error => error.pipe(delay(1000)))
       )
     }
-    ))
+    ),
+      retryWhen(error => error.pipe(delay(1000))))
   }
 
   loadAnimalImages(animalId: number, imagesId: number[]): void {
     for (let i = 0; i < imagesId.length; i++) {
       const image: AnimalImage = {
-        id: i+1,
+        id: i + 1,
         image$: this.imageDownloadService.getAnimalImageByImageId(animalId, imagesId[i]).pipe(map((y: Blob) => {
           const safeUrl: SafeUrl = this.imageDownloadService.convertBlobToSafeUrl(y);
           if (!this.selectedImage)
@@ -86,6 +88,7 @@ export class AnimalDetailsComponent implements OnInit {
             this.isBusy = false;
             return of(AssetUrls.defaultAnimalImageUrl);
           })
+          , retryWhen(error => error.pipe(delay(1000)))
         )
       };
       this.animalImages.push(image)

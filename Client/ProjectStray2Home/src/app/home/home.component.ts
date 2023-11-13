@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { delay, map, Observable, retryWhen, take, tap } from 'rxjs';
 import { AnimalPreview } from '../animal/common/animal-preview';
 import { AnimalService } from '../animal/common/animal.service';
 import { BreakpointService } from '../common/breakpoint.service';
@@ -20,7 +20,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.animals$ = this.animalservice.getAnimals(0, 4).pipe(map((result) => {
       return result.data;
-    }));
+    }),
+      retryWhen(error => error.pipe(delay(1000))
+    ));
     this.isTablet$ = this.breakpointService.isTablet();
     this.isDesktop$ = this.breakpointService.isDesktop();
   }

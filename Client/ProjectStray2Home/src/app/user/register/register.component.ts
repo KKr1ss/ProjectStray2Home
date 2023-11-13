@@ -5,7 +5,7 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 import { AuthService } from '../common/auth.service';
 import { APIResult } from '../../common/api-result';
 import { RegisterRequest } from '../common/models/register-request';
-import { map, Observable, startWith, tap } from 'rxjs';
+import { delay, map, Observable, retryWhen, startWith, tap } from 'rxjs';
 import { City } from '../../common/city';
 import { CityService } from '../../common/city.service';
 
@@ -83,7 +83,8 @@ export class RegisterComponent implements OnInit {
   loadCities() {
     this.cities$ = this.cityService.getCities().pipe(tap(x => {
       this.allCities = x;
-    }));
+    }),
+      retryWhen(error => error.pipe(delay(1000))));
   }
 
   private _filter(name: string): City[] {
