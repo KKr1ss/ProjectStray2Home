@@ -5,10 +5,10 @@ import { Observable, Subject, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { LoginRequest } from './models/login-request';
 import { LoginResult } from './models/login-result';
-import { APIResult } from '../../common/api-result';
 import { RegisterRequest } from './models/register-request';
 import { Roles } from '../../shared/enums/enums';
 import { formatDate } from '@angular/common'
+import { APIResult } from '../../common/models/api-result';
 
 @Injectable({
   providedIn: 'root',

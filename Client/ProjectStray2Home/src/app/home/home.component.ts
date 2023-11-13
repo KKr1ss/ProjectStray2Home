@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { delay, map, Observable, retryWhen, take, tap } from 'rxjs';
-import { AnimalPreview } from '../animal/common/animal-preview';
+import { delay, map, Observable, retryWhen} from 'rxjs';
 import { AnimalService } from '../animal/common/animal.service';
+import { AnimalPreview } from '../animal/common/models/animal-preview';
 import { BreakpointService } from '../common/breakpoint.service';
 
 @Component({

@@ -3,11 +3,11 @@ import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { AuthService } from '../common/auth.service';
-import { APIResult } from '../../common/api-result';
 import { RegisterRequest } from '../common/models/register-request';
 import { delay, map, Observable, retryWhen, startWith, tap } from 'rxjs';
-import { City } from '../../common/city';
 import { CityService } from '../../common/city.service';
+import { City } from '../../common/models/city';
+import { APIResult } from '../../common/models/api-result';
 
 export interface User {
   name: string;

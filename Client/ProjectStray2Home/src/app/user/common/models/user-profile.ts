@@ -1,6 +1,6 @@
 import { SafeUrl } from "@angular/platform-browser";
 import { Observable } from "rxjs";
-import { AnimalPreview } from "../../../animal/common/animal-preview";
+import { AnimalPreview } from "../../../animal/common/models/animal-preview";
 
 export interface UserProfile
 {

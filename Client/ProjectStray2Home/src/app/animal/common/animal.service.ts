@@ -2,15 +2,15 @@
 import { formatDate } from "@angular/common";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { filter, Observable} from "rxjs";
+import { Observable} from "rxjs";
 import { environment } from "../../../environments/environment";
-import { APIResult } from "../../common/api-result";
-import { PaginatorResult } from "../../common/paginator-result";
-import { AnimalCommentRequest } from "./animal-comment-request";
-import { AnimalDetails } from "./animal-details";
-import { AnimalFilter } from "./animal-filter";
-import { AnimalPreview } from "./animal-preview";
-import { AnimalRequest } from "./animal-request";
+import { APIResult } from "../../common/models/api-result";
+import { PaginatorResult } from "../../common/models/paginator-result";
+import { AnimalCommentRequest } from "./models/animal-comment-request";
+import { AnimalDetails } from "./models/animal-details";
+import { AnimalFilter } from "./models/animal-filter";
+import { AnimalPreview } from "./models/animal-preview";
+import { AnimalRequest } from "./models/animal-request";
 
 @Injectable()
 export class AnimalService {

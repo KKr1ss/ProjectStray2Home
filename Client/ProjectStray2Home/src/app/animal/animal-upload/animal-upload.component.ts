@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map, Observable, startWith, tap } from 'rxjs';
-import { APIResult } from '../../common/api-result';
-import { City } from '../../common/city';
+import { City } from '../../common/models/city';
 import { CityService } from '../../common/city.service';
 import { AnimalStatus, AnimalType, Sex } from '../../shared/enums/enums';
 import { AuthService } from '../../user/common/auth.service';
-import { AnimalRequest } from '../common/animal-request';
+import { AnimalRequest } from '../common/models/animal-request';
 import { AnimalService } from '../common/animal.service';
+import { APIResult } from '../../common/models/api-result';
 
 @Component({
   selector: 'app-animal-upload',
@@ -97,6 +97,7 @@ export class AnimalUploadComponent implements OnInit {
 
   onSubmit() {
     this.isBusy = true;
+    // eslint-disable-next-line prefer-const
     let animal = <AnimalRequest>{};
     animal.type = this.form.controls['type'].value;
     animal.breed = this.form.controls['breed'].value;

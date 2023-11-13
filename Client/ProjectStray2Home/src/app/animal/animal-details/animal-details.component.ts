@@ -4,14 +4,14 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 import { SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { catchError, delay, map, Observable, of, retryWhen, tap } from 'rxjs';
-import { APIResult } from '../../common/api-result';
 import { ImageDownloadService } from '../../common/image-download.service';
+import { APIResult } from '../../common/models/api-result';
 import { AssetUrls } from '../../shared/asset-urls';
 import { AuthService } from '../../user/common/auth.service';
-import { AnimalCommentRequest } from '../common/animal-comment-request';
-import { AnimalDetails } from '../common/animal-details';
-import { AnimalImage } from '../common/animal-image';
 import { AnimalService } from '../common/animal.service';
+import { AnimalCommentRequest } from '../common/models/animal-comment-request';
+import { AnimalDetails } from '../common/models/animal-details';
+import { AnimalImage } from '../common/models/animal-image';
 
 @Component({
   selector: 'app-animal-details',
@@ -95,6 +95,7 @@ export class AnimalDetailsComponent implements OnInit {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setSelectedImage(event: any) {
     this.selectedImage = event.currentSrc;
   }

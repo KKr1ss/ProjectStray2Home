@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { City } from '../../common/city';
+import { City } from '../../common/models/city';
 @Pipe({ name: 'cityFilter' })
 export class CityFilterPipe implements PipeTransform {
   transform(filterValue: string ,allCities: City[]): City[] {

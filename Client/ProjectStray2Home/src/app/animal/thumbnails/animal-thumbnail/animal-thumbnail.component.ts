@@ -4,7 +4,7 @@ import { catchError, map, of } from 'rxjs';
 import { ImageDownloadService } from '../../../common/image-download.service';
 import { AssetUrls } from '../../../shared/asset-urls';
 import { DaysSinceStatusChangePipe } from '../../../shared/pipes/days-since-status-change.pipe';
-import { AnimalPreview } from '../../common/animal-preview';
+import { AnimalPreview } from '../../common/models/animal-preview';
 
 @Component({
   selector: 'app-animal-thumbnail',

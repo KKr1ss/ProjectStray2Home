@@ -5,9 +5,9 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { catchError, delay, map, Observable, of, retryWhen } from 'rxjs';
 import { AnimalStatus, AnimalType, Sex } from '../../shared/enums/enums';
 import { AuthService } from '../../user/common/auth.service';
-import { AnimalFilter } from '../common/animal-filter';
-import { AnimalPreview } from '../common/animal-preview';
 import { AnimalService } from '../common/animal.service';
+import { AnimalFilter } from '../common/models/animal-filter';
+import { AnimalPreview } from '../common/models/animal-preview';
 
 @Component({
   selector: 'app-animal-list',

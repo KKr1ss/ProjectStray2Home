@@ -1,4 +1,4 @@
-import { UserPreview } from "../../user/common/models/user-preview";
+import { UserPreview } from "../../../user/common/models/user-preview";
 
 export interface AnimalComment {
   id: number;
