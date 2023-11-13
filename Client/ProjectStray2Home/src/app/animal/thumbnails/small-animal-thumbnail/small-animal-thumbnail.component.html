@@ -1,8 +1,6 @@
 <div *ngIf="animal.image$ | async as image; else loading" class="tile" [routerLink]="['/animals', animal.id]">
-  <div class="animal-container">
-    <div>
-      <img [src]="image" class="animal-image" id="animalImage" alt="állat kép"/>
-    </div>
+  <div class="animal-image-container">
+    <img [src]="image" class="animal-image" id="animalImage" alt="állat kép" />
   </div>
   <div class="animal-tile">
     <h5>{{animal.name}}</h5><hr /><h6>{{animal.city}}</h6>

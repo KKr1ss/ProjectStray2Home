@@ -2,11 +2,12 @@
   <h2>{{animal.name}} - {{animal.status | animalStatusConverter}}</h2>
   <hr />
   <div class="horizontal-image-container">
-    <div>
+    <div style="background-image: linear-gradient(rgb(0 0 0/10%) 0 0);">
       <div *ngIf="animal.animalImagesId.length!=0">
         <div class="animal-image-container">
           <img *ngIf="!isBusy; else loading" [src]="selectedImage" alt="Selected Image" class="animal-image" />
         </div>
+        <hr />
         <div style="margin: auto; max-width: 400px">
           <mat-grid-list cols="{{animal.animalImagesId.length}}" columnSpan="0" rowHeight="150px">
             <mat-grid-tile *ngFor="let animalImage of animalImages">
