@@ -29,6 +29,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ProjectStrayToHomeAPI.BAL\ProjectStrayToHomeAPI.BAL.csproj" />
+    <ProjectReference Include="..\ProjectStrayToHomeAPI.DAL\ProjectStrayToHomeAPI.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Data\DataFiles\HungarianCities.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

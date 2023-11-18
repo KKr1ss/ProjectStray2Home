@@ -1,5 +1,6 @@
 ﻿using ProjectStrayToHomeAPI.Models.DTO.Animals;
 using ProjectStrayToHomeAPI.Models.DTO;
+using Microsoft.AspNetCore.Http;
 
 namespace ProjectStrayToHomeAPI.Services.Interfaces
 {

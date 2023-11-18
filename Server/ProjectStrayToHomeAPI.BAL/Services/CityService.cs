@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjectStray2HomeAPI.Models.DTO;
-using ProjectStrayToHomeAPI.Controllers;
 using ProjectStrayToHomeAPI.Repositories.Interfaces;
 using ProjectStrayToHomeAPI.Services.Interfaces;
 

@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ProjectStray2HomeAPI.Models;
 using ProjectStray2HomeAPI.Models.EF;
-using ProjectStrayToHomeAPI.Controllers;
 using ProjectStrayToHomeAPI.Data.Handlers;
 using ProjectStrayToHomeAPI.Repositories.Interfaces;
 using ProjectStrayToHomeAPI.Services.Interfaces;

@@ -7,6 +7,8 @@ namespace ProjectStrayToHomeAPI.Data.Handlers
     {
         public static List<City> getCities( string contentRootPath)
         {
+            contentRootPath = contentRootPath.Substring(0, contentRootPath.Length - 1);
+            contentRootPath += ".DAL";
             var path = Path.Combine(contentRootPath, "Data/DataFiles/HungarianCities.txt");
             string[] citiesTextFileLines = File.ReadAllLines(path);
 

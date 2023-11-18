@@ -1,4 +1,5 @@
-﻿using ProjectStrayToHomeAPI.Models.DTO;
+﻿using Microsoft.AspNetCore.Http;
+using ProjectStrayToHomeAPI.Models.DTO;
 using ProjectStrayToHomeAPI.Models.DTO.User;
 
 namespace ProjectStrayToHomeAPI.Services.Interfaces

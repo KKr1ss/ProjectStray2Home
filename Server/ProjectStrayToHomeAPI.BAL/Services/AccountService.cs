@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using ProjectStray2HomeAPI.Models;
 using ProjectStray2HomeAPI.Models.EF;
-using ProjectStrayToHomeAPI.Data.Handlers.Interfaces;
+using ProjectStrayToHomeAPI.Handlers.Interfaces;
 using ProjectStrayToHomeAPI.Helpers;
 using ProjectStrayToHomeAPI.Models.DTO;
 using ProjectStrayToHomeAPI.Models.DTO.User;

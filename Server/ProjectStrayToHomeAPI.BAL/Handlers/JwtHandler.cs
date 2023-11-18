@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using ProjectStray2HomeAPI.Models.EF;
-using ProjectStrayToHomeAPI.Data.Handlers.Interfaces;
+using ProjectStrayToHomeAPI.Handlers.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace ProjectStrayToHomeAPI.Data.Handlers
+namespace ProjectStrayToHomeAPI.Handlers
 {
     public class JwtHandler : IJwtHandler
     {

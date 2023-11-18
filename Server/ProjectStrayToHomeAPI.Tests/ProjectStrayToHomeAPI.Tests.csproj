@@ -24,6 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ProjectStrayToHomeAPI.BAL\ProjectStrayToHomeAPI.BAL.csproj" />
+    <ProjectReference Include="..\ProjectStrayToHomeAPI.DAL\ProjectStrayToHomeAPI.DAL.csproj" />
     <ProjectReference Include="..\ProjectStrayToHomeAPI\ProjectStrayToHomeAPI.csproj" />
   </ItemGroup>
 

@@ -1,7 +1,7 @@
 ﻿using ProjectStray2HomeAPI.Models.EF;
 using System.IdentityModel.Tokens.Jwt;
 
-namespace ProjectStrayToHomeAPI.Data.Handlers.Interfaces
+namespace ProjectStrayToHomeAPI.Handlers.Interfaces
 {
     public interface IJwtHandler
     {

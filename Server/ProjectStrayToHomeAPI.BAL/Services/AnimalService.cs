@@ -2,13 +2,13 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ProjectStray2HomeAPI.Models.EF;
-using ProjectStrayToHomeAPI.Controllers;
 using ProjectStrayToHomeAPI.Models.DTO.Animals;
 using ProjectStrayToHomeAPI.Models.DTO;
 using ProjectStrayToHomeAPI.Repositories;
 using ProjectStrayToHomeAPI.Repositories.Interfaces;
 using ProjectStrayToHomeAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace ProjectStrayToHomeAPI.Services
 {

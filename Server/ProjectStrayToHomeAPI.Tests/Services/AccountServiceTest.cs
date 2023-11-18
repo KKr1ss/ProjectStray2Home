@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Moq;
 using ProjectStray2HomeAPI.Data;
 using ProjectStray2HomeAPI.Models.EF;
-using ProjectStrayToHomeAPI.Data.Handlers.Interfaces;
+using ProjectStrayToHomeAPI.Handlers.Interfaces;
 using ProjectStrayToHomeAPI.Models.DTO.User;
 using ProjectStrayToHomeAPI.Repositories;
 using ProjectStrayToHomeAPI.Repositories.Interfaces;

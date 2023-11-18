@@ -1,17 +1,7 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ProjectStray2HomeAPI.Models.EF;
 using ProjectStrayToHomeAPI.Models.DTO;
 using ProjectStrayToHomeAPI.Models.DTO.Animals;
-using ProjectStrayToHomeAPI.Models.DTO.User;
-using ProjectStrayToHomeAPI.Repositories.Interfaces;
-using System.Net.Http.Json;
-using System.Security.Claims;
-using System.Text.Json.Serialization;
-using System.Text.Json;
-using ProjectStrayToHomeAPI.Services;
 using ProjectStrayToHomeAPI.Services.Interfaces;
 
 namespace ProjectStrayToHomeAPI.Controllers

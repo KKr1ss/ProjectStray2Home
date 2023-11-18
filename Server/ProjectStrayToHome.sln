@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectStrayToHomeAPI", "ProjectStrayToHomeAPI\ProjectStrayToHomeAPI.csproj", "{1658C5C3-517C-48F0-8347-A72934ED99A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectStrayToHomeAPI", "ProjectStrayToHomeAPI\ProjectStrayToHomeAPI.csproj", "{1658C5C3-517C-48F0-8347-A72934ED99A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectStrayToHomeAPI.Tests", "ProjectStrayToHomeAPI.Tests\ProjectStrayToHomeAPI.Tests.csproj", "{8C19DA59-8B69-4AF1-9FC6-18F51C26DA63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectStrayToHomeAPI.Tests", "ProjectStrayToHomeAPI.Tests\ProjectStrayToHomeAPI.Tests.csproj", "{8C19DA59-8B69-4AF1-9FC6-18F51C26DA63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectStrayToHomeAPI.DAL", "ProjectStrayToHomeAPI.DAL\ProjectStrayToHomeAPI.DAL.csproj", "{B4B6A7E0-ADE6-445D-B1FF-E8F3843A511A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectStrayToHomeAPI.BAL", "ProjectStrayToHomeAPI.BAL\ProjectStrayToHomeAPI.BAL.csproj", "{C3DFCE37-9E23-4F8F-9E38-F1A1EDD70D94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{8C19DA59-8B69-4AF1-9FC6-18F51C26DA63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C19DA59-8B69-4AF1-9FC6-18F51C26DA63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C19DA59-8B69-4AF1-9FC6-18F51C26DA63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4B6A7E0-ADE6-445D-B1FF-E8F3843A511A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4B6A7E0-ADE6-445D-B1FF-E8F3843A511A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4B6A7E0-ADE6-445D-B1FF-E8F3843A511A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4B6A7E0-ADE6-445D-B1FF-E8F3843A511A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3DFCE37-9E23-4F8F-9E38-F1A1EDD70D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3DFCE37-9E23-4F8F-9E38-F1A1EDD70D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3DFCE37-9E23-4F8F-9E38-F1A1EDD70D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3DFCE37-9E23-4F8F-9E38-F1A1EDD70D94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
