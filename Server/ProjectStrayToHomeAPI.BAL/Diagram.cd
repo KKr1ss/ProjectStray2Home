@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="ProjectStrayToHomeAPI.Handlers.JwtHandler" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="6.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAQAAAAAAAACAAAAAAAAAEAAAAAABg=</HashCode>
+      <FileName>Handlers\JwtHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.Animals.AnimalCommentDTO">
+    <Position X="21.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Models\DTO\Animals\AnimalCommentDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.Animals.AnimalCommentRequestDTO">
+    <Position X="21.5" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAABAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\DTO\Animals\AnimalCommentRequestDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.Animals.AnimalDetailsDTO">
+    <Position X="21.5" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAACAgAEAAAABAAICAAAAAQQAAAQBAAAAQAACAIAIAA=</HashCode>
+      <FileName>Models\DTO\Animals\AnimalDetailsDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.Animals.AnimalPreviewDTO">
+    <Position X="30" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEABAABAAIAAAAAAQAAAAAAAAAAQAACAIAAAA=</HashCode>
+      <FileName>Models\DTO\Animals\AnimalPreviewDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.Animals.AnimalRequestDTO">
+    <Position X="25" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAgAFAAAABAAACAAAAAwAAAAQBAAAAQAAAAIAAAA=</HashCode>
+      <FileName>Models\DTO\Animals\AnimalRequestDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.User.ApplicationUserDTO">
+    <Position X="24.5" Y="1.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAASAgBACAAAAQQAAAAAAQAAAAABABAAAAAAg=</HashCode>
+      <FileName>Models\DTO\User\ApplicationUserDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.User.ApplicationUserImageDTO">
+    <Position X="30.5" Y="10.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAABAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DTO\User\ApplicationUserImageDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.User.LoginRequestDTO">
+    <Position X="24.25" Y="14.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAAAAA=</HashCode>
+      <FileName>Models\DTO\User\LoginRequestDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.User.LoginResultDTO">
+    <Position X="21.5" Y="12.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAQAAIAABAAA=</HashCode>
+      <FileName>Models\DTO\User\LoginResultDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.User.RegisterRequestDTO">
+    <Position X="27.75" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAgBAAAIAACQAAAAAAQAAACAQAAAAAAAAg=</HashCode>
+      <FileName>Models\DTO\User\RegisterRequestDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.User.UserPreviewDTO">
+    <Position X="27" Y="12.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAACAABACAAAAAQAAAAAAAAAAAAQAAAAAAAAg=</HashCode>
+      <FileName>Models\DTO\User\UserPreviewDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.User.UserProfileDTO">
+    <Position X="30" Y="1.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAASAgBACAAAAQQAAAAAAQAAAAARABAAAAAAg=</HashCode>
+      <FileName>Models\DTO\User\UserProfileDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.APIResultDTO">
+    <Position X="28.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\DTO\APIResultDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Models.DTO.PaginatorResultDTO&lt;T&gt;">
+    <Position X="27.75" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAABAAAAAAAEAAAAAAAABAAAAAAEAAAAAA=</HashCode>
+      <FileName>Models\DTO\PaginatorResultDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStray2HomeAPI.Models.DTO.CityDTO">
+    <Position X="28.25" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAAABAQAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Models\DTO\CityDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStray2HomeAPI.Models.Profiles.AnimalCommentProfile">
+    <Position X="4.25" Y="8.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Profiles\AnimalCommentProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStray2HomeAPI.Models.Profiles.AnimalProfile">
+    <Position X="4.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Profiles\AnimalProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStray2HomeAPI.Models.Profiles.ApplicationUserProfile">
+    <Position X="6.5" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Profiles\ApplicationUserProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStray2HomeAPI.Models.Profiles.CityProfile">
+    <Position X="4.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Profiles\CityProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Services.AccountService" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AgAABAAAAAAAAAAAQAABAAgAAAAAIAAgAAAAAAAgAAA=</HashCode>
+      <FileName>Services\AccountService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Services.AnimalService" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="0.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAABAACAAAIAIAAQAAAAAAAAAAE=</HashCode>
+      <FileName>Services\AnimalService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Services.CityService" BaseTypeListCollapsed="true">
+    <Position X="9" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAABAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\CityService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Services.ImageService" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAABAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\ImageService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Services.SeedService" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAEABAAAACAAAQAAAAAAAAAiAAAAIAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Services\SeedService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Helpers.ApplicationUserHelper">
+    <Position X="6.5" Y="9.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\ApplicationUserHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Helpers.FileStreamConverter">
+    <Position X="6.5" Y="8.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Helpers\FileStreamConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ProjectStrayToHomeAPI.Handlers.Interfaces.IJwtHandler">
+    <Position X="0.75" Y="9.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Handlers\Interfaces\IJwtHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjectStrayToHomeAPI.Services.Interfaces.IAccountService">
+    <Position X="0.75" Y="3.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAgAAA=</HashCode>
+      <FileName>Services\Interfaces\IAccountService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjectStrayToHomeAPI.Services.Interfaces.IAnimalService">
+    <Position X="4.5" Y="3.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAIAAAAQAAAAAAAAAAE=</HashCode>
+      <FileName>Services\Interfaces\IAnimalService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjectStrayToHomeAPI.Services.Interfaces.ICityService">
+    <Position X="9" Y="3.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Interfaces\ICityService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjectStrayToHomeAPI.Services.Interfaces.IImageService">
+    <Position X="12.75" Y="3.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Interfaces\IImageService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjectStrayToHomeAPI.Services.Interfaces.ISeedService">
+    <Position X="16.5" Y="3.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Interfaces\ISeedService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

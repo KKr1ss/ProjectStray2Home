@@ -1,8 +1,11 @@
-# Kóbor kereső (cím keresés alatt áll)
+# Szociális platform a kóbor háziállatok bejelentéséhez/megtalálásához
 
 ## Project leírása
-Az kóbor keresőbe regisztárlva a felhasználóknak lehetősége van az elveszett állatok figyelésére, feltöltésére, és jelzésére. Az ország teljes területét lefedő alkalmazásban lehetősége lesz a felhasználónak, hogy az általa látogatott városokat/falvakat hozzáadva a profiljához értesítéseket kapjon a "környékén" elveszett állatokról.
-Amennyiben egy kóbor állatot talált, feltöltheti annak akkori helyzetét, vagy akár ha ideiglenesen befogadta.
+Célom, egy szociális platformként funkcionáló weboldal készítése ASP.NET Core és Angular felhasználásával, ahol a felhasználóknak lehetősége van az elveszett állataik, vagy az adott településén található kóbor, vagy akár befogadott háziállatok feltöltésére. Az oldal továbbá használható lehetne menhelyek számára is, amelyek ide feltöltve a befogadott kóbor állatokat egy központi helyet nyújthatnának a gazdáknak.
+
+Szociális platform részén kiválasztható, hogy mely városokban szeretné a felhasználó figyelni az állatokat, így ezekről a településekről értesítést kaphat, amennyiben új állat került feltöltésre. Az állattal kapcsolatos” hirdetések” pedig kommentálhatóak, vagy észlelésük jelezhető az állat gazdájának, ha éppen szembe találkozna vele egy felhasználó.
+
+Továbbá célkitűzésem egy Magyarországon hiánypótló szoftver megalkotása, amelyet az emberek használhatnának egész ország területén, a menhelyekkel egyetemben, így hazajuttatva a gazdáiktól elkóborolt háziállatokat.
 
 ### Használt technológiák
 - ASP.NET Core API - .NET 6.0 (LTS) Framework
@@ -10,8 +13,8 @@ Amennyiben egy kóbor állatot talált, feltöltheti annak akkori helyzetét, va
 - MS SQL
 
 ### Implementálásra váró szolgáltatások
-- Cliens fejlesztése
-- API befejezése
+- Értesítések implementálása
+- Szerver clean architectúrára való váltása
 
 
 ## Fejlesztési beállítások

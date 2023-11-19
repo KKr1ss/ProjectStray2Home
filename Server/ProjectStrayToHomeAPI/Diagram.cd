@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="ProjectStray2HomeAPI.Controllers.AccountController">
+    <Position X="0.75" Y="1" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AQAAgAAAAAAAAAAAAAAAAAAEIAABAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Controllers.AnimalController">
+    <Position X="4" Y="1" Width="3" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAIAAAAAAgAIAIAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Controllers\AnimalController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Controllers.CityController">
+    <Position X="4" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAEAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CityController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Controllers.ImageController">
+    <Position X="0.75" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAMAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\ImageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectStrayToHomeAPI.Controllers.SeedController">
+    <Position X="6.75" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAIAAAAAAABAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\SeedController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
